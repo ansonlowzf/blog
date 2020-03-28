@@ -1,0 +1,51 @@
+---
+title: Learning Git
+date: 2020-03-28
+---
+
+## Basic
+
+```terminal
+//To check git version or whether git has been installed in local machine
+git -- version
+```
+
+```terminal
+//To tell git start tracking project
+git init
+```
+
+## Staging
+
+```terminal
+//Add a file to staging area
+git add <filename>
+
+
+//Add all file with extension
+git add *.html
+
+//Add all modified files (regardless of any extension)
+git add .
+or
+git add -A
+
+//Remove file from staging area / unstage
+git rm --cached <filename>
+
+```
+
+## Commit
+
+```terminal
+//Commit all add files to repository
+git commit -m "<description>"
+```
+
+## Git Ignore
+
+```terminal
+//Tell git to ignore some files which no need to be tracked
+Example:-
+node_module
+```
