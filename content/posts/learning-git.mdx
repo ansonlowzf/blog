@@ -133,7 +133,7 @@ git merge --squash <branchName>
 // Push latest changes to master
 git push origin master
 
-// Push to master and and set up upsteam
+// Push to master and and set up remote branch "master" from "origin"
 git push -u origin master
 
 // Push to the origin if you set up upstream before
@@ -180,6 +180,11 @@ git clone <networkAddress> <newName>
 ```terminal
 // List remote repository associate with your project
 git remote
+
+// Add remote
+git remote add origin <remoteNetworkAddress>
+also can
+git remote add origin 2 <remoteNetworkAddress>
 
 // Remove remote repository from your project
 git remote remove origin

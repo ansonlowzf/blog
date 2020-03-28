@@ -1,0 +1,115 @@
+---
+title: Learning Gatsby Part 1
+date: 2020-03-28
+---
+
+## Gatsby Starter
+
+[Gatsby Starter Library](https://www.gatsbyjs.org/starters/?v=2)
+
+After browsing the starter library for 1 hour+, I don't find any blog starter I like
+
+So, I keep browsing gatsbyjs's website until I reach [this part of the website](https://www.gatsbyjs.org/tutorial/using-a-theme/) and see a starter which cannot be found in gatsby starter library, weird huh?
+
+I follow the guide and run the command
+
+```shell
+gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
+```
+
+Wow, seen like a blog with Gatsby theme which is inspired by Dan Abramov's blog named [overreacted.io](https://overreacted.io/)
+
+I like it and start imagine myself to write like Dan Abramov,
+
+Bang my head on to the wall, ok enough day dreaming.
+
+Continue follow the guide
+
+```shell
+cd my-blog
+gatsby develop
+```
+
+What the heck... Error?
+
+Scroll back and see whether I did follow the guide,
+
+Check 1, check 2, check 3, exactly the same, why error happen? invalid hook?
+
+Dig here dig there, wondering...
+
+Maybe I need to run, let me try
+
+```shell
+npm install
+```
+
+Since I run npm install, without thinking further I also run:-
+
+```shell
+npm update
+```
+
+Please, error go away
+
+```shell
+gatsby develop
+```
+
+Well, it's successfully showing on my localhost:8000
+
+Feel touching, tear rolling at the edge of my eyes
+
+It's works, next...
+
+## Replace your avatar
+
+The guide said
+
+The blog theme starter ships with a solid gray image for the avatar. Add your own avatar by choosing the image you want, and overwriting the file located at /content/assets/avatar.png.
+
+Let me find a handsome photo and put in the content/assets photo
+
+Found one and rename it to ansonlowzf-handsome-photo.jpg
+
+Ok, drop it to content/assets folder
+
+En... where the heck, I can modify and path to ansonlowzf-handsome-photo
+
+Check gatsby-config.js file, package.json? I open every file and see
+
+I have no idea, **if you know, please teach me**
+
+My email is zhanfaye@gmail.com
+
+No choice, I have to rename it to avatar.jpg
+
+What? Still no show up? The photo disappear
+
+Why? scroll back and check the guide
+
+Ops, I have to rename it to avatar.png T_T
+
+Oh! Finally, my handsome face show up, next...
+
+## Replace the content of the bio
+
+This one is pretty straigh forward
+
+I check **node_modules/gatsby-theme-blog**
+
+![node module gatsby them blog](../assets/gatsby-theme-blog.png)
+
+It's mean I create file name exactly match the name as shown in the component and put it in gatsby-plugin-theme-ui
+
+My file content will overwrite or replace the default one
+
+This is called component shadowing, learn a new thing today!
+
+Open **bio-content.js** which already exist in the folder and start write my own content
+
+The rest is pretty staight forward...
+
+Afterward, I started to own a blog which you are reading now...
+
+Thank you for stoping by

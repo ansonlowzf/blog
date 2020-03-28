@@ -7,8 +7,8 @@ import React, { Fragment } from "react"
 
 export default () => (
   <Fragment>
-    This is my updated bio.
+    I'm from Malaysia, my pleasure to be a digital marketer
     <br />
-    It's shadowing the content from the theme.
+    and learning to be a web developer
   </Fragment>
 )
