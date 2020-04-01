@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-theme-blog`,
       options: {},
@@ -7,17 +8,22 @@ module.exports = {
   ],
   // Customize your site metadata:
   siteMetadata: {
-    title: `Anson LowZF Blog`,
+    title: `Anson LowZF's Blog`,
     author: `Anson LowZF`,
-    description: `Document my learning to be a web developer`,
+    description: `Document my learning to be a digital marketer & web developer`,
+    siteUrl: `https://ansonlowzf.netlify.com`,
     social: [
       {
         name: `twitter`,
-        url: `https://twitter.com/gatsbyjs`,
+        url: `https://twitter.com/ansonlowzf`,
       },
       {
         name: `github`,
-        url: `https://github.com/gatsbyjs`,
+        url: `https://github.com/ansonlowzf`,
+      },
+      {
+        name: `Proudly hosted on Netlify`,
+        url: `https://www.netlify.com/`,
       },
     ],
   },
