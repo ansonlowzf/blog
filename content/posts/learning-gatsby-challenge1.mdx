@@ -1,0 +1,134 @@
+---
+title: Learning Gatsbyjs for Blogging Challenge 1
+date: 2020-03-28
+---
+
+Thank you Gatsby's team and Hashim Warren to start the 100DaysOfGatsby challenge. Although, I not 100% follow the challenge, I read the challenge and pick what I need to learn and document in my blog.
+
+## Challenge 1: Create a Gatsby Blog from Scratch
+
+The bonus tips inspired me to start a blog,
+
+> Use your new blog to track your #100DaysOfGatsby progress! Research shows that writing about what you learn, or even what you're struggling with helps you to retain that information, or even discover a solution. So, during your #100DaysOfGatsby journey, we encourage you to use this blog to write about your ups and downs, victories and challenges.
+> \- By Hashim Warren
+
+## Gatsby Starter
+
+I start browsing the <a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank" rel="noreferrer noopener">Gatsby Starter Library</a>. There are around 133 blog starters. After browsing for 1 hour++, I still can't decide which starter to use for my personal blog.
+
+So, I keep digging gatsbyjs's website until I reach <a href="https://www.gatsbyjs.org/tutorial/using-a-theme/" target="_blank" rel="noreferrer noopener">this part of the website</a> and see a starter which cannot be found in gatsby starter library, weird huh?
+
+I follow the guide and run the command,
+
+```shell
+gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
+```
+
+Then
+
+```shell
+cd my-blog
+gatsby develop
+```
+
+Error? Invalid Hook?
+
+Scroll back and check which part I make wrong,
+
+Check 1, check 2, check 3, I did follow the exact guide, what happened?
+
+Dig here dig there, wondering...
+
+20 mins later, oh... maybe I need to run,
+
+```shell
+npm install
+```
+
+Since I run npm install, without thinking further I also run:-
+
+```shell
+npm update
+```
+
+I want to make sure every packages are up to date,
+
+Then, I run
+
+```shell
+gatsby develop
+```
+
+Well, it's successfully showing on my localhost:8000,
+
+Feel touching and tear rolling at the edge of my eyes,
+
+Debugging is time consuming, you know it ya?
+
+Wow, It's seen like a blog with Gatsbyjs theme which is similar to Dan Abramov's blog named [overreacted.io](https://overreacted.io/).
+
+I like it and start imagine myself to write like Dan Abramov,
+
+Bang my head on to the wall, ok enough day dreaming.
+
+Continue follow the guide
+
+## Replace your avatar
+
+The guide said
+
+> The blog theme starter ships with a solid gray image for the avatar. Add your own avatar by choosing the image you want, and overwriting the file located at /content/assets/avatar.png.
+
+Let me find a handsome photo and put in the content/assets photo
+
+Found one and rename it to ansonlowzf-handsome-photo.jpg
+
+Drop it to content/assets folder
+
+En... where the heck, I can modify and path to ansonlowzf-handsome-photo.jpg?
+
+Check gatsby-config.js file, package.json? I open every file and check line by line,
+
+Where? where is it?
+
+10 mins later, finish checking all existing file
+
+I not sure how to change the path,
+
+**if you know, please teach me.** My email is zhanfaye@gmail.com
+
+No choice, I have to rename it to avatar.jpg
+
+Finally, my handsome face show up,
+
+## Replace the content of the bio
+
+This one is pretty straigh forward
+
+I check **node_modules/gatsby-theme-blog**
+
+![node module gatsby them blog](../assets/gatsby-theme-blog.png)
+
+It's mean I create a file name exactly match the name as shown in the component and put it in gatsby-theme-blog/components
+
+My file will overwrite or replace the default
+
+This is called component shadowing, learn a new thing today!
+
+Open **bio-content.js** which already exist in the folder and start write my own content
+
+> I'm from Malaysia, my pleasure to be a digital marketer and learning to be a web developer
+
+## Create a new blog post
+
+It's straight forward, just add your file with mdx extention and save it to content/posts
+
+## Change the color theme
+
+There is a file **colors.js** created and exist in **gatsby-plugin-theme-ui**
+
+I uncommented and immedietely change to lightblue theme
+
+It's that simple to start a blog, you can do it too.
+
+Thank you for reading...

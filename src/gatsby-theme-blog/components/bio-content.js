@@ -1,14 +1,12 @@
 import React, { Fragment } from "react"
+import { Link } from "gatsby"
 // import { Styled } from "theme-ui"
-
-/**
- * Change the content to add your own bio
- */
 
 export default () => (
   <Fragment>
-    I'm from Malaysia, my pleasure to be a digital marketer
+    Learning to be a digital marketer &amp; web developer.{` `}
+    <Link to="/about-me">More about me</Link>
     <br />
-    and learning to be a web developer
+    Find something wrong? please correct me @ zhanfaye@gmail.com
   </Fragment>
 )

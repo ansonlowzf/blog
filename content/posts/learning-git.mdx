@@ -1,12 +1,15 @@
 ---
-title: Learning Git
+title: Learning Git & Often Use CLI
 date: 2020-03-28
 ---
+
+Git version control is one of the essential tool & skill you should master to be a web developer. I document the often use git CLI to be referenced.
 
 ## Basic
 
 ```terminal
-//To check git version or whether git has been installed in local machine
+// To check git version
+// or use to check whether git has been installed in local machine
 git -- version
 
 // Update latest git version in windows 10
@@ -15,16 +18,16 @@ git update-git-for-windows
 // List all global config
 git config --global --list (or -l in short)
 
-// Reset or set username in git
+// Reset or set username
 git config --global user.name <name>
 
-// Reset or set email in git
+// Reset or set email
 git config --global user.email <email>
 
-// Delete username in git
+// Delete username
 git config --global --unset user.name
 
-// Delete email in git
+// Delete email
 git config --global --unset user.email
 
 // To tell git start tracking project
@@ -33,7 +36,7 @@ git init
 // If want to check whether git init is success
 ls .git
 
-// Check the file whether on untracked, staging or commit status
+// Check the file whether on untracked, staging status
 git status
 ```
 
@@ -66,13 +69,13 @@ git commit -m "<description>"
 //
 git commit -a -m "<description>"
 
-//Not encourage to just run
+// Not encourage to just run
 git commit
 
-//If your text editor is using Vim, after you run the command; it will enter Vim mode for your to add message.
-//After you write your message, you need to press "esc" and type :wq + <enter> to save and exit.
-//Or :q! + <enter> to exit without saving.
-//It's extra step just to commit and add description.
+// If your text editor is using Vim, after you run the command; it will enter Vim mode for your to add message.
+// After you write your message, you need to press "esc" and type :wq + <enter> to save and exit.
+// Or :q! + <enter> to exit without saving.
+// It's extra step just to commit and add description.
 
 // Amend commit description
 git commit --amend
@@ -90,7 +93,7 @@ git branch
 // To delete branch after merging
 git branch -d <branchName>
 
-// To delete branch you no longer needed (before merging)
+// To delete branch you don't need (before merging)
 git branch -D <branchName>
 
 // To delete branch in remote repository
@@ -133,14 +136,15 @@ git merge --squash <branchName>
 // Push latest changes to master
 git push origin master
 
-// Push to master and and set up remote branch "master" from "origin"
+// Push to master
+// Set up remote branch "master" from "origin"
 git push -u origin master
 
-// Push to the origin if you set up upstream before
+// Push to the origin if set up upstream before
 git push
 
 // Push to the remote branch
-git push <networkAddress> <branchName>
+git push <remoteNetworkAddress> <branchName>
 ```
 
 ## Git Pull
@@ -153,15 +157,18 @@ git pull origin master
 git pull -u origin master
 
 // Pull the latest changes from a branch to local branch
-git pull <networkAddress> <branchName>
+git pull <remoteNetworkAddress> <branchName>
 ```
 
 ## Git Ignore
 
 ```terminal
-//Tell git to ignore some files which no need to be tracked
-Example:-
+// Tell git to ignore some files which no need to be tracked
+// Example:-
+
 node_module
+.cache/
+public
 ```
 
 ## Git Clone
@@ -169,10 +176,10 @@ node_module
 ```terminal
 // Clone from a remote repository to a local machine
 // cd to the folder you want to clone
-git clone <networkAddress>
+git clone <remoteNetworkAddress>
 
 // clone and giving it a new name
-git clone <networkAddress> <newName>
+git clone <remoteNetworkAddress> <newName>
 ```
 
 ## Git Remote
@@ -193,10 +200,10 @@ git remote remove origin
 git remote -v
 
 // Set remote network address to your project
-git remote set-url origin <networkAddress>
+git remote set-url origin <remoteNetworkAddress>
 
 // Add a new remote repository to the current repository
-git remote add <remoteName> <networkAddress>
+git remote add <remoteName> <remoteNetworkAddress>
 ```
 
 ## Git Fetch
