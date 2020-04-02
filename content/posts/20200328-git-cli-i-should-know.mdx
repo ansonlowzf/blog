@@ -1,0 +1,159 @@
+---
+title: Git CLI You Should Know
+date: 2020-03-28
+---
+
+Git version control system is one of the essential tool & skill we should master to become a better web developer. I document the git CLI we should know for future reference.
+
+In case you want to download Git version control system, Please visit <a href='https://git-scm.com/' target='_blank' rel="noreferrer noopener">Git official website</a>
+
+There are 3 popular git version control hosting you should know:-
+
+1. <a href="https://github.com/" target="_blank" rel="noreferrer noopener">
+     Github
+   </a>
+2. <a
+     href="https://about.gitlab.com/"
+     target="_blank"
+     rel="noreferrer noopener"
+   >
+     Gitlab
+   </a>
+3. <a
+     href="https://bitbucket.org/product"
+     target="_blank"
+     rel="noreferrer noopener"
+   >
+     Bitbucket
+   </a>
+
+Bitbucket has a well-structured tutorial to learn git. From beginner to advance.
+Check out <a href="https://www.atlassian.com/git/tutorials/what-is-version-control" target="_blank"
+     rel="noreferrer noopener">Bitbucket Git Tutorial</a>
+
+Git CLI below are my personal cheatsheet I learn from many different YouTube tutorial, filter and document those I think it's useful
+
+## General
+
+| Description                                |                  Git Command Line                  |
+| :----------------------------------------- | :------------------------------------------------: |
+| To check git version                       |                  `git --version`                   |
+| Update git to latest version in windows 10 |            `git update-git-for-windows`            |
+| List all global config                     |         `git config --global --list or -l`         |
+| Set or reset username                      |      `git config --global user.name "[name]"`      |
+| Set or reset email address                 | `git config --global user.email "[email address]"` |
+| Delete username                            |      `git config --global --unset user.name`       |
+| Delete email address                       |      `git config --global --unset user.email`      |
+| Tell git start tracking a project          |                     `git init`                     |
+| Check file status on untracked, or staging |                    `git status`                    |
+
+## Staging
+
+| Description                          |       Git Command Line       |
+| :----------------------------------- | :--------------------------: |
+| Add a file to staging area           |     `git add [filename]`     |
+| Add all files with certain extension |       `git add *.html`       |
+| Add all files to staging             | `git add .` or `git add -A`  |
+| Remove file from staging area        | `git rm --cached [filename]` |
+
+## Commit
+
+| Description                                          |             Git Command Line             |
+| :--------------------------------------------------- | :--------------------------------------: |
+| Add all staging files to repository with description |     `git commit -m "[description]"`      |
+| Amend last commit description                        | `git commit --amend -m "[descriptioni]"` |
+| Commit staging files without description             |               `git commit`               |
+
+Not encourage to just run `git commit`. You will need to do extra thing to add description after the commit.
+If you are using Vim, you will enter Vim mode just to add your description.
+Then you have to press "esc" and type `:wq + enter` to save and exit.
+Or `:q; + enter` to exit without saving
+
+## Branch
+
+| Description                          |         Git Command Line          |
+| :----------------------------------- | :-------------------------------: |
+| To create a branch                   |     `git branch [branchName]`     |
+| To list all branches                 |           `git branch`            |
+| Delete a branch after merging        |   `git branch -d [branchName]`    |
+| Delete a branch before merging       |   `git branch -D [branchName]`    |
+| Delete a branch in remote repository | `git push origin -d [branchName]` |
+
+## Checkout
+
+| Description                         |             Git Command Line              |
+| :---------------------------------- | :---------------------------------------: |
+| Switch to a branch                  |        `git checkout [branchName]`        |
+| Switch to master                    |           `git checkout master`           |
+| Create a branch and switch to it    |      `git checkout -b [branchName]`       |
+| Switch to the version code you want |    `git checkout [first6HashIdDigit]`     |
+| Roll back to last commit            | `git checkout -- . (dash dash space dot)` |
+
+## Merge
+
+| Description                                      |         Git Command Line          |
+| :----------------------------------------------- | :-------------------------------: |
+| Merge a branch (checkout to master before merge) |     `git merge [branchName]`      |
+| Merge and only include the latest commit log     | `git merge --squash [branchName]` |
+
+## Push
+
+| Description                                 |      Git Command Line       |
+| :------------------------------------------ | :-------------------------: |
+| Push changes to remote master               |  `git push origin master`   |
+| Push to remote master and set as upstream   | `git push -u origin master` |
+| Push to remote master after set up upstream |         `git push`          |
+
+## Pull
+
+| Description                                   |                Git Command Line                |
+| :-------------------------------------------- | :--------------------------------------------: |
+| Pull changes from remote master               |            `git pull origin master`            |
+| Pull from remote master and set as upstream   |          `git pull -u origin master`           |
+| Pull from remote master after set up upstream |                   `git pull`                   |
+| Pull changes from remote to local branch      | `git pull [remoteNetworkAddress] [branchName]` |
+
+## Clone
+
+| Description                                                                                     |               Git Command Line               |
+| :---------------------------------------------------------------------------------------------- | :------------------------------------------: |
+| Clone from a remote repository to local (cd to the folder you want to clone before runnind CLI) |      `git clone [remoteNetworkAddress]`      |
+| Clone and give it a new name                                                                    | `git clone [remoteNetworkAddress] [newName]` |
+
+## Fetch
+
+| Description                   |  Git Command Line  |
+| :---------------------------- | :----------------: |
+| Fetch latest changes to local | `git fetch origin` |
+
+## Git Log
+
+| Description                        |         Git Command Line          |
+| :--------------------------------- | :-------------------------------: |
+| Show commit logs                   |             `git log`             |
+| Show last 2 commit logs            |           `git log -2`            |
+| Show commit log in one line        |        `git log --online`         |
+| Show last 2 commit log in one line |       `git log --online -2`       |
+| Show commit log before the date    |  `git log --before="2020-01-31"`  |
+| Show commit log after the date     |  `git log --after="2020-01-31"`   |
+| Show commit log by the author      | `git log --author="[authorName]"` |
+| Show commit log since yesterday    |   `git log --since="yesterday"`   |
+| Show commit log since 2 weeks ago  |  `git log --since="2 weeks ago"`  |
+
+## Remote
+
+| Description                                             |                   Git Command Line                   |
+| :------------------------------------------------------ | :--------------------------------------------------: |
+| List remote repository associate with your project      |                     `git remote`                     |
+| Add repository to remote hosting                        |    `git remote add origin [remoteNetworkAddress]`    |
+| Add repository to remote hosting 2                      |   `git remote add origin2 [remoteNetworkAddress]`    |
+| Remove repository from your project                     |              `git remote remove origin`              |
+| List remote network address associate with your project |                   `git remote -v`                    |
+| Set remote network address to your project              |  `git remote set-url origin [remoteNetworkAddress]`  |
+| Add a new remote repository to the current repository   | `git remote add [remoteName] [remoteNetworkAddress]` |
+
+## .gitignore file
+
+| Description                                               |           Git Command Line            |
+| :-------------------------------------------------------- | :-----------------------------------: |
+| Tell git to ignore some files which no need to be tracked | Example: node_module, .cache/, public |
