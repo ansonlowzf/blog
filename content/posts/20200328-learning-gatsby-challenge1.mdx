@@ -3,22 +3,24 @@ title: Learning Gatsbyjs for Blogging Challenge 1
 date: 2020-03-28
 ---
 
-Thank you Gatsby's team and Hashim Warren to start the 100DaysOfGatsby challenge. Although, I not 100% follow the challenge, I read the challenge and pick what I need to learn and document in my blog.
+Thank you Gatsby's team and Hashim Warren to start the 100DaysOfGatsby challenge.
 
-## Challenge 1: Create a Gatsby Blog from Scratch
-
-The bonus tips inspired me to start a blog,
+The bonus tips inspired me to start to develop and create a blog with gatsbyjs
 
 > Use your new blog to track your #100DaysOfGatsby progress! Research shows that writing about what you learn, or even what you're struggling with helps you to retain that information, or even discover a solution. So, during your #100DaysOfGatsby journey, we encourage you to use this blog to write about your ups and downs, victories and challenges.
 > \- By Hashim Warren
 
-## Gatsby Starter
+## Challenge 1: Create a Gatsby Blog from Scratch
 
-I start browsing the <a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank" rel="noreferrer noopener">Gatsby Starter Library</a>. There are around 133 blog starters. After browsing for 1 hour++, I still can't decide which starter to use for my personal blog.
+If you are interested in the challenge, you could check out <a href="https://www.gatsbyjs.org/blog/100days/start-blog/" target="_blank" rel="noreferrer noopener">here</a>
 
-So, I keep digging gatsbyjs's website until I reach <a href="https://www.gatsbyjs.org/tutorial/using-a-theme/" target="_blank" rel="noreferrer noopener">this part of the website</a> and see a starter which cannot be found in gatsby starter library, weird huh?
+I started the blog by checking out the <a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank" rel="noreferrer noopener">Gatsby Starter Library</a>. There are around 133 blog starters. After checking for 1 hour++ (don't know how many starters I checked), I still can’t decide which one to use for a personal blog.
 
-I follow the guide and run the command,
+Take a rest, grab a cup of coffee...
+
+Continue browsing gatsbyjs's website. I've forgetten how and why, I star digging gatsbyjs doc then I reach <a href="https://www.gatsbyjs.org/tutorial/using-a-theme/" target="_blank" rel="noreferrer noopener">this part of the website</a> and see a starter which cannot be found in gatsby starter library, weird huh?
+
+Run the command,
 
 ```shell
 gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
@@ -31,13 +33,13 @@ cd my-blog
 gatsby develop
 ```
 
-Error? Invalid Hook?
+What? error...! Invalid Hook...?
 
-Scroll back and check which part I make wrong,
+Double-check the instruction,
 
-Check 1, check 2, check 3, I did follow the exact guide, what happened?
+Check 1, check 2, check 3, I did follow the exact guide. What is problem? Scratching head...
 
-Dig here dig there, wondering...
+Dig here dig there, wondering... scractching head...
 
 20 mins later, oh... maybe I need to run,
 
@@ -51,27 +53,27 @@ Since I run npm install, without thinking further I also run:-
 npm update
 ```
 
-I want to make sure every packages are up to date,
+This is to make sure every package are up to date,
 
-Then, I run
+Ok, let me run
 
 ```shell
 gatsby develop
 ```
 
-Well, it's successfully showing on my localhost:8000,
+Well, it's run on localhost:8000,
 
-Feel touching and tear rolling at the edge of my eyes,
+Tear rolling at the edge of my eyes, I can do it
 
 Debugging is time consuming, you know it ya?
 
-Wow, It's seen like a blog with Gatsbyjs theme which is similar to Dan Abramov's blog named [overreacted.io](https://overreacted.io/).
+Wow, It looks like a blog with pre-config with Gatsbyjs theme which is similar to Dan Abramov's blog named [overreacted.io](https://overreacted.io/).
 
-I like it and start imagine myself to write like Dan Abramov,
+I like it and start to imagine I write a blog like Dan Abramov, Bang!
 
-Bang my head on to the wall, ok enough day dreaming.
+Bang my head on to the wall, enough daydreaming.
 
-Continue follow the guide
+Continue to follow the guide
 
 ## Replace your avatar
 
@@ -89,15 +91,15 @@ En... where the heck, I can modify and path to ansonlowzf-handsome-photo.jpg?
 
 Check gatsby-config.js file, package.json? I open every file and check line by line,
 
-Where? where is it?
+Oh, mama, how can I config it?
 
-10 mins later, finish checking all existing file
+10 mins later,
 
-I not sure how to change the path,
+I give up,
 
 **if you know, please teach me.** My email is zhanfaye@gmail.com
 
-No choice, I have to rename it to avatar.jpg
+I rename it to avatar.jpg
 
 Finally, my handsome face show up,
 
@@ -109,26 +111,28 @@ I check **node_modules/gatsby-theme-blog**
 
 ![node module gatsby them blog](../assets/gatsby-theme-blog.png)
 
-It's mean I create a file name exactly match the name as shown in the component and put it in gatsby-theme-blog/components
+It's mean we could just create a file exactly match the name as shown in the component and save it in \*\*src/gatsby-theme-blog/components
 
-My file will overwrite or replace the default
+Our file will overwrite it
 
 This is called component shadowing, learn a new thing today!
 
-Open **bio-content.js** which already exist in the folder and start write my own content
+Open **bio-content.js** which already exist in the folder and start write my own content and save.
 
-> I'm from Malaysia, my pleasure to be a digital marketer and learning to be a web developer
+Wow... so easy to change the bio-content. Gatsbyjs with theme is so cool
 
 ## Create a new blog post
 
-It's straight forward, just add your file with mdx extention and save it to content/posts
+Just add a file with mdx extention and save it to content/posts
+
+It's automatically appear in blog list and create the blog post. So simple, so fast
 
 ## Change the color theme
 
-There is a file **colors.js** created and exist in **gatsby-plugin-theme-ui**
+There is a file **colors.js** exist in **gatsby-plugin-theme-ui**
 
-I uncommented and immedietely change to lightblue theme
+Just uncommented, the theme immedietaly change to light blue
 
-It's that simple to start a blog, you can do it too.
+It's that simple to start a blog, you should try it out.
 
 Thank you for reading...
