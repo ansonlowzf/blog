@@ -3,7 +3,7 @@ title: MDX Navigation To Section
 date: 2020-04-04
 ---
 
-I would like to add a table of contents in MDX's blog. So, the visitors could easily navigate to the section they want to read first. It's should be an easy task but I as a beginner, I still struggling with it. Let's see what problem I face and how I settle it.
+I would like to add a table of contents on the top of MDX's blog. So, the visitors could easily navigate to any section they want to read. It's should be an easy task but not for a beginner like me. I still struggling with it. Let's see what problem I face and how I settle it.
 
 ## What I do first?
 
@@ -23,7 +23,7 @@ So, I write `## [My Header] {#my-header}` in MDX file and the result is:-
 
 Why it output exactly what I write?
 
-Maybe this Markdown syntax cannot be used in MDX?
+Maybe this Markdown syntax is different from MDX?
 
 I try google **MDX navigation to a section**, no relevant result
 
@@ -31,7 +31,7 @@ What Should I do?
 
 I try to change the curly braces to bracket `## [My Header] (#my-header)`
 
-My theme setting make the header white text and light blue on hover
+My theme setting make the header become white text and light blue on hover
 
 Oh my god!
 
@@ -59,8 +59,8 @@ Add a nagivation link with the id you want to navigate to:-
 [My Header](#my-header)
 ```
 
-Normally, web developer add this at the top of blog post
+Normally, web developer add this at the top of blog post. Maybe you can try it.
 
-So that, visitors can click it and navigate to **My Header** section. Then, press home on the keyboard to navigate back to top to choose other section they want to navigate to
+Now, visitor can click and navigate to **My Header** section. Then, press home on windows keyboard to navigate back to top
 
 Finally, I did it. This is 4 hours later...
