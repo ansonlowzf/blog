@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop -o",
     "start": "gatsby develop",
     "build": "gatsby build",
     "clean": "gatsby clean"
