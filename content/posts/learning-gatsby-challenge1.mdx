@@ -16,7 +16,7 @@ This bonus tip is a final blow for me to make the final decision to start a blog
 > Use your new blog to track your #100DaysOfGatsby progress! Research shows that writing about what you learn, or even what you're struggling with helps you to **retain that information**, or even **discover a solution**. So, during your #100DaysOfGatsby journey, we encourage you to use this blog to write about your ups and downs, victories and challenges.
 > \- By Hashim Warren
 
-Writing blog while learning slow down the learning pace, but gain the benefit of retain information. I should have started it earlier.
+Writing blog while learning slow down my learning pace, but gain the benefit of retaining information. I should have started it earlier.
 
 ## Challenge 1: Create a Gatsby blog from scratch
 
@@ -28,20 +28,22 @@ When I'm stuck, It means it's a time to take a rest and grab a cup of coffee...
 
 Come back to the desk, continue browsing gatsby.js' website. Tic toc, tic toc, don't know how long the time had passed, I reached <a href="https://www.gatsbyjs.org/tutorial/using-a-theme/" target="_blank" rel="noreferrer noopener">this page</a> and see a starter which cannot be found in the starter library, weird huh?
 
-Run the command,
+Open **Git Bash**, Run the command:-
 
 ```shell
 gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
 ```
 
-Then
+Then:-
 
 ```shell
 cd my-blog
 gatsby develop
 ```
 
-What? error!? Some Invalid Hook message shows up.
+What? error!? The following message show in terminal
+
+![gatsby starter blog theme error in terminal](../assets/gatsby-starter-blog-theme-error.jpg)
 
 Double-check the page,
 
@@ -49,39 +51,45 @@ Check 1, check 2, check 3, every word and spelling are correct. What is the prob
 
 Dig here dig there, wondering... continue scratching head...
 
-20 mins later, oh... maybe I need to run,
+20 mins later, oh... maybe I need to run:-
 
 ```shell
 npm install
 ```
 
-Since I run npm install, I also run:-
+But, It just audit the node packages,
 
-```shell
-npm update
-```
-
-To make sure every package are up to date,
-
-Afterwards,
+Again, I try to run:-
 
 ```shell
 gatsby develop
 ```
 
-Open localhost:8000 in my browser. It works as expected,
+Open localhost:8000 in my browser.
 
-Tear rolling at the edge of my eyes,
+The following error show up in the browser
 
-Forgive me, I'm a real noob!
+![gatsby starter blog theme error in browswer](../assets/gatsby-starter-blog-theme-error2.jpg)
+
+Close **Git Bash** and open the project folder with VS Code and run:-
+
+```shell
+gatsby develop
+```
+
+Yo! It works. Hundred of (?) appear on my head.
+
+I not sure why it's not working in **Git Bash** but work in VS Code's terminal which also git **Git Bash**
+
+Afterwards I update node packages `npm update` and `gatsby develop` to check out the site
 
 This starter is pre-config with **gatsby-theme-blog** and it's look similar to Dan Abramov's blog named [overreacted.io](https://overreacted.io/). I believe this theme is inspired by it.
 
-I like simple and concise design and start to imagine I can write like Dan Abramov
+I like this minimalist's design and start to imagine I write like Dan Abramov
 
-Bang! bang! bang my head on to the wall, wake up and stop daydreaming.
+Bleh! Bang my head on to the wall, time to wake up and stop daydreaming.
 
-Continue...
+Continue the guide...
 
 ## Replace your avatar
 
