@@ -1,25 +1,50 @@
 ---
-title: Markdown Front-matter Variables
+title: About Markdown Frontmatter
 date: 2020-04-19
-excerpt: What could we add to front-matter in markdown?
 tags: ["Resources"]
 ---
 
-## What is front-mattter in markdown?
+This is one of the essential features you must know if you are blogging and writing your article in Markdown format.
 
-```mdx
+## Frontmattter in Markdown
+
+Appear on the top of the Markdown, must start from line 1 like so:-
+
+```md
 ---
 title: This is a title
 date: YYYY-MM-DD
-tags: ["tag A", "tag B", tag C]
+tags: ["tag A", "tag B", "tag C"]
+excerpt: description
 ---
 ```
 
-The properties and value written in the three dashes are front-matter. We could display them in blog index page like below:-
+The properties and value written within the triple dashes are **frontmatter**.
+
+I'm using Gatsby's markdown setup. You might have notice I didn't wrap the values in quotation mark. Gatsby setup will convert it to String for me in the background.
+
+If you are using other markdown setup. You might need to write like this:-
+
+```md
+---
+title: "This is a title"
+date: "YYYY-MM-DD"
+tags: ["tag A", "tag B", "tag C"]
+excerpt: "description"
+---
+```
+
+Did you notice the different? You write the value in "String".
+
+## What frontmatter used for?
+
+We use frontmatter to set variables and metadata on Markdown page then output to any page we want.
+
+We could use it to display information in blog index page:-
 
 ![blog index page](../assets/blog-index-page.jpg)
 
-If you are using Content Management System such as Jekyll or Hugo, they have **predefined global variables** you must follow. You could their frontmatter page:-
+If you are using Content Management System such as Jekyll or Hugo, they have **predefined global variables** you must follow. You could visit their frontmatter page:-
 
 <ol>
   <li>
@@ -42,11 +67,40 @@ If you are using Content Management System such as Jekyll or Hugo, they have **p
   </li>
 </ol>
 
-If you are setting up a blog site yourself, you could define your own variables name. Then use it in blog index page
+## YAML or JSON
 
-Example properties people often use:-
+They both do the same thing but the writting method is different. The examples shown above are in JSON format. YAML format will be like so:-
 
-```mdx
+```yaml
+title: "this is title"
+date: ""
+tags:
+  - tag A
+  - tag B
+  - tag C
+```
+
+## Custom variables
+
+If you are setting up a Markdown blog yourself, you could define your own variables name. It's depend on the package you use. What frontmatter does is convert YAML or JSON you write to an object.
+
+```md
+---
+custom_variable: "some text"
+my_address: "address"
+---
+```
+
+If you pass the props as data, you could access it like so:-
+
+```js
+<h1>{data.custome_variable}</h1>
+<p>{data.my_address}</p>
+```
+
+Some example properties people often use:-
+
+```md
 ---
 title:
 date:
