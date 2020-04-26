@@ -15,10 +15,10 @@ module.exports = {
   ],
   // Customize your site metadata:
   siteMetadata: {
-    title: `Anson LowZF`,
+    title: `Anson LowZF Blog`,
     author: `Anson LowZF`,
-    description: `Blog and document my milestone, timeline, and how I learn to be a digital marketer & web developer`,
-    siteUrl: `https://ansonlowzf.netlify.com`,
+    description: `A self taught developer learning to be a front-end developer, I document my learning experience in this blog`,
+    siteUrl: `https://ansonlowzf.com`,
     social: [
       {
         name: `twitter`,
