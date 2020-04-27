@@ -4,11 +4,11 @@ date: 2020-04-19
 tags: ["Resources"]
 ---
 
-This is one of the essential features you must know if you are blogging and writing your article in Markdown format.
+This is one of the essential features you must know if you're writing your blog in Markdown format.
 
 ## Frontmattter in Markdown
 
-Appear on the top of the Markdown, must start from line 1 like so:-
+They live on the top of a Markdown file, must start from line 1 like so:-
 
 ```md
 ---
@@ -19,9 +19,9 @@ excerpt: description
 ---
 ```
 
-The properties and value written within the triple dashes are **frontmatter**.
+The properties and value written within the triple dashes are called **frontmatter**.
 
-I'm using Gatsby's markdown setup. You might have notice I didn't wrap the values in quotation mark. Gatsby setup will convert it to String for me in the background.
+I'm using Gatsby.js' markdown setup. You may have notice I didn't write the values in quotation mark. The Gatsby.js' setup will convert it to "String" in the background.
 
 If you are using other markdown setup. You might need to write like this:-
 
@@ -40,11 +40,11 @@ Did you notice the different? You write the value in "String".
 
 We use frontmatter to set variables and metadata on Markdown page then output to any page we want.
 
-We could use it to display information in blog index page:-
+We could use it to display information on our blog index page:-
 
 ![blog index page](../assets/blog-index-page.jpg)
 
-If you are using Content Management System such as Jekyll or Hugo, they have **predefined global variables** you must follow. You could visit their frontmatter page:-
+If you are using any content management system such as Jekyll or Hugo, they have **predefined global variables** you must follow. You could visit their frontmatter page:-
 
 <ol>
   <li>
@@ -69,11 +69,11 @@ If you are using Content Management System such as Jekyll or Hugo, they have **p
 
 ## YAML or JSON
 
-They both do the same thing but the writting method is different. The examples shown above are in JSON format. YAML format will be like so:-
+They both do the same thing but writing format is different. The examples shown above are in JSON format. YAML format will be like so:-
 
 ```yaml
 title: "this is title"
-date: ""
+date: "2020-01-31"
 tags:
   - tag A
   - tag B
@@ -82,7 +82,7 @@ tags:
 
 ## Custom variables
 
-If you are setting up a Markdown blog yourself, you could define your own variables name. It's depend on the package you use. What frontmatter does is convert YAML or JSON you write to an object.
+If you are setting up a Markdown blog yourself, you could define your own variables name. It's depend on the package you use. What frontmatter does is **convert YAML or JSON you write to an object.**
 
 ```md
 ---

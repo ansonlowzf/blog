@@ -1,0 +1,92 @@
+---
+title: How I sort blog post with Vanilla JavaScript
+date: 2020-04-27
+tags: [JavaScript]
+---
+
+I understand frontmatter in Markdown first before I can understand how to sort blogpost by date, id, or any property you want. Normally, we sort by the latest date on top in descending order.
+
+Today I learned (TIL) how to sort blogposts with vanilla JavaScript.
+
+## Array.sort()
+
+When I first see the code:-
+
+```js
+frontmatterData.sort((a, b) => {
+  if (a.date < b.date) {
+    return -1
+  } else {
+    return 1
+  }
+})
+```
+
+My head is fainting, what this a.date or b.date does?
+
+Why not just write earlyDate < laterDate? laterDate is greater than earlyDate, so laterDate go top first.
+
+Why must return -1 first then return 1?
+
+I head to MDN JavaScript <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort' target='_blank' rel='noreferrer noopener'>**sort()**</a> docs read it again and again. I started to pick up during the fourth time of reading.
+
+## Sort Array of Objects
+
+First, let's look at frontmatter. I know the output of frontmatter is an array of objects like so:-
+
+```js
+const frontmatterData = [
+  { title: "a", date: `2020-03-01`, text: "a..." },
+  { title: "b", date: `2020-03-02`, text: "b..." },
+  { title: "c", date: `2020-03-03`, text: "c..." },
+  { title: "d", date: `2020-03-04`, text: "d..." },
+  { title: "e", date: `2020-03-05`, text: "e..." },
+]
+```
+
+Now, I understand what **a.date** does now.
+
+It's mean if we want to sort by date, we must access date in the parameter "a" and compare the date in parameter "b".
+
+let's look at the code again, "a" and "b" are the parameter we provide to the function.
+
+```js
+frontmatterData.sort((a, b) => {
+  if (a.date < b.date) {
+    return -1
+  } else {
+    return 1
+  }
+})
+```
+
+We can also sort in by title (a.title, b.title), by description (a.description, b.description).
+
+Based on my understanding,
+
+When comparing **a.date** with **b.date** return 0, sort remain unchange
+
+If a > b, return 1 which is greater than 0, index a > index b, said index a is 1, index b = 0, then **"b"** come first = sort in descending order
+
+If a < b, return -1 which is lesser than 0, index a < index b, said index a is 1, index b = 2, then **"a"** come first = sort in ascending order.
+
+**Note**: If I understand it wrong way, please reach me out @ <a href='https://twitter.com/ansonlowzf' target='_blank' rel='noreferrer noopener'>Twitter</a> to share your thought with me. Your kindness is much appreciated.
+
+We can just change the greater (>) and the lesser (<) sign with same return value will change ascending or descending order
+
+Or swap the -1 and 1 value will also work
+
+If you want test it out yourself:-
+
+<a
+  href="https://codesandbox.io/s/how-to-sort-blog-post-with-vanilla-javascript-p4czh?file=/src/index.js"
+  target="_blank"
+  rel="noreferrer noopener"
+>
+  <img
+    alt="Edit How to sort blog post with vanilla JavaScript"
+    src="https://codesandbox.io/static/img/play-codesandbox.svg"
+  />
+</a>
+
+Check your result in the console
