@@ -4,8 +4,7 @@ import { Link } from "gatsby"
 
 export default () => (
   <Fragment>
-    Learning to be a digital marketer &amp; web developer.
-    <br />
-    <Link to="/about-me">More about me</Link>
+    A self taught front-end developer documenting and sharing his learning
+    process. A little more story <Link to="/about-me">about me</Link>
   </Fragment>
 )

@@ -4,13 +4,9 @@ date: 2020-04-27
 tags: [JavaScript]
 ---
 
-I understand frontmatter in Markdown first before I can understand how to sort blogpost by date, id, or any property you want. Normally, we sort by the latest date on top in descending order.
+Gatsby.js is using GraphQL to query data, we can sort and return the data in descending order. No JavaScript is required. With GraphQL interactive playground, it's even simple, you just click you want the data is descending order then copy and paste your query in your Gatsby.js project. Thats all, cool right?
 
-Today I learned (TIL) how to sort blogposts with vanilla JavaScript.
-
-## Array.sort()
-
-When I first see the code:-
+While I am learning Next.js with my limited JavaScript knowledge, suddenly i see this code block...
 
 ```js
 frontmatterData.sort((a, b) => {
@@ -26,29 +22,39 @@ My head is fainting, what this a.date or b.date does?
 
 Why not just write earlyDate < laterDate? laterDate is greater than earlyDate, so laterDate go top first.
 
-Why must return -1 first then return 1?
+Why must return this 1 or -1 thing?
+
+Ahhh...
 
 I head to MDN JavaScript <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort' target='_blank' rel='noreferrer noopener'>**sort()**</a> docs read it again and again. I started to pick up during the fourth time of reading.
 
+A few moment later...
+
+## Array.sort()
+
+Finally, I've some clue about how this **array.sort()** works
+
+In order to understand sorting blogpost in Markdown and output to blog index page, you need to understand how frontmatter work first before you can understand how to sort blogpost by date, id, or any property you want. Normally, we sort the blogpost by the latest date on top, older post come later.
+
 ## Sort Array of Objects
 
-First, let's look at frontmatter. I know the output of frontmatter is an array of objects like so:-
+We can sort by the value inside the object.
 
-```js
+Let's look at some simple frontmatter. I know the output of frontmatter is an array of objects in JSON:-
+
+```json
 const frontmatterData = [
-  { title: "a", date: `2020-03-01`, text: "a..." },
-  { title: "b", date: `2020-03-02`, text: "b..." },
-  { title: "c", date: `2020-03-03`, text: "c..." },
-  { title: "d", date: `2020-03-04`, text: "d..." },
-  { title: "e", date: `2020-03-05`, text: "e..." },
+  { "title": "a", "date": `2020-03-01`, "text": "a..." },
+  { "title": "b", "date": `2020-03-02`, "text": "b..." },
+  { "title": "c", "date": `2020-03-03`, "text": "c..." },
+  { "title": "d", "date": `2020-03-04`, "text": "d..." },
+  { "title": "e", "date": `2020-03-05`, "text": "e..." },
 ]
 ```
 
-Now, I understand what **a.date** does now.
+If we want to sort based on the date, we access the date with the parameter we provide,
 
-It's mean if we want to sort by date, we must access date in the parameter "a" and compare the date in parameter "b".
-
-let's look at the code again, "a" and "b" are the parameter we provide to the function.
+Let's look at the code again, "a" and "b" are the parameter we provide to the function.
 
 ```js
 frontmatterData.sort((a, b) => {
@@ -60,7 +66,11 @@ frontmatterData.sort((a, b) => {
 })
 ```
 
-We can also sort in by title (a.title, b.title), by description (a.description, b.description).
+In this case, we access date with dot notation - **a.date**.
+
+We can also sort by title (a.title, b.title), by description (a.description, b.description). What being sorted are alphabet of the title or description.
+
+To decide which come first or later, we compare the value of the parameters,
 
 Based on my understanding,
 
