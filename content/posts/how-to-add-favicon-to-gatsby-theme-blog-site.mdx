@@ -1,0 +1,52 @@
+---
+title: How To Add Favicon to Gatsby-theme-blog Site
+date: 2020-04-28
+tags: ["Gatsbyjs", "gatsby-theme-blog"]
+---
+
+Checking the site in production, gatsby-theme-blog does not come with any setup for favicon.
+
+![No Favicon](../assets/no-favicon.png)
+
+In development mode, we can see the gatsby favicon
+
+![With Gatsby favicon](../assets/with-gatsby-favicon.png)
+
+How could we add a favicon into our production site?
+
+## Gatsby-plugin-manifest
+
+After digging gatsby.js docs and some googling, found out this gatsby plugin work best favicon.
+
+```shell
+npm i gatsby-plugin-manifest
+```
+
+In case you want to know more about this plugin, visit <a href='https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/' target='_blank' rel='noreferrer noopener'>here</a>
+
+After finish installation, I add the following code to **gatsby-config.js**.
+
+```js
+module.exports = {
+  plugins: [
+    ...otherPlugin,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `AnsonwLowZF Blog`,
+        short_name: `Anson LowZF Blog`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#66E0FF`,
+        display: `standalone`,
+        icon: `content/assets/anson-blog-logo.png`,
+        theme_color_in_head: false,
+      },
+    },
+  ],
+}
+```
+
+It's that simple to add a favicon to our site in production,
+
+![With Gatsby favicon](../assets/with-anson-blog-logo.png)

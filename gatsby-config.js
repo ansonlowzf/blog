@@ -12,12 +12,25 @@ module.exports = {
         head: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `AnsonwLowZF Blog`,
+        short_name: `Anson LowZF Blog`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#66E0FF`,
+        display: `standalone`,
+        icon: `content/assets/anson-blog-logo.png`,
+        theme_color_in_head: false,
+      },
+    },
   ],
   // Customize your site metadata:
   siteMetadata: {
     title: `Anson LowZF Blog`,
     author: `Anson LowZF`,
-    description: `A self taught developer learning to be a front-end developer, I document my learning experience in this blog`,
+    description: `A self taught front-end developer documenting and sharing his learning process`,
     siteUrl: `https://ansonlowzf.com`,
     social: [
       {
