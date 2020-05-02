@@ -1,23 +1,23 @@
 ---
-title: How To Create Navbar With Material-UI
+title: How To Create Navbar With Material-UI - Part 1
 date: 2020-04-29
-tags: ["material-ui"]
-excerpt: This is to share how I create mobile and responsive navigation bar with material-ui.
+tags: ["Material-UI"]
+excerpt: This is to share how I create a modern mobile and responsive navigation bar with material-ui.
 ---
 
 import { Link } from "gatsby"
 
 Our goal is to create a production-ready Material-UI navbar with some modern features.
 
-1. Create a header component and navbar for desktop - Part 1
-2. Add drawer component to navbar and make it mobile responsive - Coming Soon
-<!-- - <Link to="/how-to-add-drawer-to-material-ui-navbar">Part 2</Link> -->
-3. Add **scroll to hide** feature to navbar - Coming Soon
-4. Add **back to top** feature to navbar - Coming Soon
+| No.                                                                                         | Description                                                            |
+| :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------- |
+| <Link to='/how-to-create-navbar-header-with-material-ui'>Part 1</Link>                      | Create a Header component and navbar for desktop                       |
+| <Link to="/how-to-add-drawer-to-material-ui-navbar">Part 2</Link>                           | Add drawer component to navbar and make it mobile responsive           |
+| <Link to='/add-hide-on-scroll-and-back-to-top-features-to-material-ui-navbar'>Part 3</Link> | Add **scroll to hide** & **back to top** feature to Material-UI navbar |
 
-## 1. Create a header component and navbar for desktop
+## 1. Create a Header component and navbar for desktop
 
-**Note:** Please note that part 1 is not production-ready. Please do not use it in your project. We just created a header component and it's not mobile friendly yet.
+**Note:** Please note that part 1 is not production-ready. Please do not use it in your project. We just created a Header component and it's not mobile friendly yet.
 
 Install these 2 Material-UI dependencies into your React.js project
 
@@ -33,7 +33,7 @@ You can just use JS extension, I choose to use JSX is because it enables Emmet f
 
 ## Create navbar
 
-I create navigation links variable in the header component. You could also create a JSON or JS file separately and import it to the header component. Since this project does not has many links, create in the component let us work easier.
+I create navigation links variable in the **Header** component. You could also create a JSON or JS file separately and import it to the **Header** component. Since this is a small project, create the nav links in the component let us work easier.
 
 ```jsx
 const navLinks = [
@@ -45,7 +45,7 @@ const navLinks = [
 ]
 ```
 
-Import React.js and Material-UI components to create a navbar
+Initial **Header** component to create a navbar:-
 
 ```js
 import * as React from "react"
@@ -64,13 +64,22 @@ const Header = () => {
 export default Header
 ```
 
-Save the file and go to **src/index.js**
+Save the file and go to **src/index.js**, import **Header** component and add it above **App** component.
 
 ```js
 import Header from "./components/Header"
+
+const rootElement = document.getElementById("root")
+ReactDOM.render(
+  <React.StrictMode>
+    <Header /> {/*Add this*/}
+    <App />
+  </React.StrictMode>,
+  rootElement
+)
 ```
 
-Save the index.js file, you should see a blue colour navbar appear
+Save the **index.js** file, you should see a blue colour navbar appear
 
 ![Blue material ui navbar](../assets/blue-navbar.png)
 
@@ -87,14 +96,16 @@ Add the following code to your global CSS file
 
 ## Add logo
 
-Since I don't have any logo for this project, I will just use a home icon act as a logo. In fact, I often use this home icon in my real project to make it obvious the visitor this is a click to the home button.
+Since I don't have any logo for this project, I will just use a home icon act as a logo.
+In fact, I often use this home icon in my real project to make it obvious to visitor,
+this is a click to the home button.
 
 ```js
 import { ..., IconButton } from "@material-ui/core"
 import { Home } from "@material-ui/icons"
 ```
 
-Then add the following code inside toolbar component
+Then add the following code inside **Toolbar** component
 
 ```js
 const Header = () => {
@@ -118,14 +129,12 @@ Save the file, you should see the home icon show up
 
 ## Add Navlinks
 
-Import Material-UI components for the navlink
-
 ```js
 import { ..., List, ListItem, ListItemText } from "@material-ui/core"
 
 ```
 
-Add the following code inside toolbar component
+Add the following code inside **Toolbar** component
 
 ```js
 <Toolbar>
@@ -180,7 +189,7 @@ navlinks = [...]
 
 ```
 
-Then call it inside the component and assign it classes variable
+Then call it inside **Header** component and assign it classes variable
 
 ```js
 const Header = () => {
@@ -196,10 +205,10 @@ and apply like so:-
 <List
   component="nav"
   aria-labelledby="main navigation"
-  className={classes.navDisplayFlex} // Add this
+  className={classes.navDisplayFlex} // this
 >
   {navLinks.map(({ title, path }) => (
-    <a href={path} key={title} className={classes.linkText}  {/* Add this */}>
+    <a href={path} key={title} className={classes.linkText}  {/* this */}>
       <ListItem button>
         <ListItemText primary={title} />
       </ListItem>
@@ -212,13 +221,13 @@ Save the file and you will see
 
 ![navbar with style](../assets/navbar-with-style.png)
 
-How could we align the navigation links to the right? But before that, let's add a container component to wrap home icon and navigation links. You will know why we need to add this component later.
+How could we align the navigation links to the right? Before this, let's add a **Container** component to wrap home icon and navigation links. You will know why we need to add this component later.
 
 ```js
 import { ..., Container } from "@material-ui/core"
 ```
 
-and wrap it like this
+and wrap **IconButton** & **List** component like this
 
 ```js
 <Toolbar>
@@ -229,7 +238,7 @@ and wrap it like this
 </Toolbar>
 ```
 
-Afterwards, add this code's object into makeStyles function
+Afterwards, add this CSS code's object into makeStyles function
 
 ```js
 const useStyles = makeStyles({
@@ -241,7 +250,7 @@ const useStyles = makeStyles({
 });
 ```
 
-Apply it to container component
+Apply it to **Container** component
 
 ```js
 <Toolbar>
@@ -255,7 +264,7 @@ Save the file and you will see
 
 They're too close to the left and right edges and space quite far away. How could we make them closer toward the center?
 
-Just apply maxWidth to container component will do, this is the purpose I add Container component earlier.
+Just apply maxWidth to **Container** component will do, this is the purpose I add **Container** component earlier.
 
 ```js
 <Toolbar>
@@ -268,9 +277,12 @@ Just apply maxWidth to container component will do, this is the purpose I add Co
 
 ![Navbar with container](../assets/navbar-with-container.png)
 
-You could choose your maxWidth from "xs", "sm", "md", "lg", and "xl" to find out which container layout suit the distance you want.
+You could choose your maxWidth from "xs", "sm", "md", "lg", and "xl" to find out which distance you want.
 
-In case you face any problem, check out the code:-
+In case you want to know what is the breakpoints of the screen size for "sm" or "md",
+you could check out <a href="https://material-ui.com/customization/breakpoints/" target='_blank' rel='noreferrer noopener'>Material-UI docs</a>
+
+check out the code:-
 
 <a
   href="https://codesandbox.io/s/how-to-build-material-ui-navbar-header-cu3sf?fontsize=14&hidenavigation=1&theme=dark"
@@ -283,6 +295,8 @@ In case you face any problem, check out the code:-
   />
 </a>
 
-<!-- Next
+Next
 
-I will add drawer to this header, it's a bit tricky. Let's see how -->
+We'll add a Drawer component to navbar and make it mobile responsive
+
+<Link to="/how-to-add-drawer-to-material-ui-navbar">Part 2</Link>{" "}

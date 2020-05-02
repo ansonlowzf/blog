@@ -1,0 +1,173 @@
+---
+title: How to add HideOnScroll and BackToTop features to Material-UI navbar - Part 3
+date: 2020-05-02
+tags: ["Material-UI"]
+excerpt: These features are optional. It's depend on how you want to design your website.
+---
+
+import { Link } from "gatsby"
+
+This part 3 is a continuation section from part 2. If you direct land on this page, I suggest you check out from part 1 then part 2 before you continue...
+
+| Series                                                                                      | Description                                                            |
+| :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------- |
+| <Link to='/how-to-create-navbar-header-with-material-ui'>Part 1</Link>                      | Create a header component and navbar for desktop                       |
+| <Link to="/how-to-add-drawer-to-material-ui-navbar">Part 2</Link>                           | Add drawer component to navbar and make it mobile responsive           |
+| <Link to='/add-hide-on-scroll-and-back-to-top-features-to-material-ui-navbar'>Part 3</Link> | Add **scroll to hide** & **back to top** feature to Material-UI navbar |
+
+## Hide on Scroll
+
+This features is useful especially for mobile phone. The navbar go aways when visitor start scroll and come back again when visitor scroll up. Giving the visitor more space to read your content.
+
+Let's get started,
+
+Hide on scroll does not work with static **AppBar**
+
+Go to **src/components/Header.jsx** and change the **AppBar** to fixed
+
+```js
+<AppBar position="fixed">
+```
+
+Then create **scr/components/HideOnScroll.jsx**. The code is straight forward, just copy and paste the following code to the component.
+
+```js
+import * as React from "react"
+import { Slide, useScrollTrigger } from "@material-ui/core"
+
+const HideOnScroll = ({ children }) => {
+  const trigger = useScrollTrigger()
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  )
+}
+
+export default HideOnScroll
+```
+
+Go to **src/components/Header.jsx**, and
+
+```js
+import HideOnScroll from "./HideOnScroll"
+```
+
+Wrap the **AppBar** and all it's children
+
+```js
+<HideOnScroll>
+  <AppBar>...</AppBar>
+</HideOnScroll>
+```
+
+Save the file and scroll down your website and keep an eyes on the navbar
+
+If it's not working, check out the code
+
+<a href="https://codesandbox.io/s/add-hide-on-scroll-and-back-to-top-features-to-material-ui-navbar-pmn11?fontsize=14&hidenavigation=1&theme=dark">
+  <img
+    alt="Edit add hide on scroll and back to top features to material-ui navbar"
+    src="https://codesandbox.io/static/img/play-codesandbox.svg"
+  />
+</a>
+
+## Back to top button
+
+This button provide an alternative way for visitor to quickly scroll back to the top of the page especially to reach the navbar, then visitor can navigate to other page.
+
+If you have a floating navigation button or you have a sticky bottom navbar, this button is not neccessary.
+
+Material-Ui approach is to add this feature to the navbar, since we're going to use navbar across our website. We don't need add it to all pages
+
+Create **src/components/BackToTop.jsx**
+
+This component is also very staight forward, I'll just put the entire code below:-
+
+```js
+import * as React from "react"
+import { Zoom, useScrollTrigger } from "@material-ui/core"
+
+const style = {
+  position: `fixed`,
+  bottom: `50px`,
+  right: `100px`,
+  zIndex: `99`,
+}
+
+const BackToTop = ({ children }) => {
+  const trigger = useScrollTrigger()
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    )
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" style={style}>
+        {children}
+      </div>
+    </Zoom>
+  )
+}
+
+export default BackToTop
+```
+
+Check out the **handleClick** event. It uses JavaScript to target an ID. Visitor click the BackToTop Button,
+It'll scroll to this ID.
+
+In case you want to know what is **.ownerDocument**, check out this <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/ownerDocument" target='_blank' rel='noreferrer noopener'>MDN doc</a> or
+
+You want to know **.scrollIntoView** check out this <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView" target='_blank' rel='noreferrer noopener'>MDN doc</a>
+
+We need to add the ID somewhere in our **Headaer** component.
+
+Go to **Header** component, add a **Toolbar** component below **HideOnScroll** with the ID. Must be same name as the querySelector shown above.
+
+```js
+ <HideOnScroll>...</HideOnScroll>
+ <Toolbar id="back-to-top-anchor" />
+```
+
+Since, toolbar is just a div tag, you can use it like this. If you check out Material-UI **AppBar** docs.
+They're using it like the same way.
+
+Afterwards
+
+```js
+import BackToTop from "./BackToTop";
+import { ..., Fab } from "@material-ui/core";
+import { ..., KeyboardArrowUp } from "@material-ui/icons";
+```
+
+Copy and paste the code, place it below **Toolbar** component
+
+```js
+<Toolbar id="back-to-top-anchor" />
+
+<BackToTop>
+  <Fab color="secondary" size="large" aria-label="scroll back to top">
+    <KeyboardArrowUp />
+  </Fab>
+</BackToTop>
+```
+
+Try scroll down the page now, you will see
+
+**Back to top** button appear
+
+You can play around the code here
+
+<a href="https://codesandbox.io/s/add-hide-on-scroll-and-back-to-top-features-to-material-ui-navbar-pmn11?fontsize=14&hidenavigation=1&theme=dark">
+  <img
+    alt="Edit add hide on scroll and back to top features to material-ui navbar"
+    src="https://codesandbox.io/static/img/play-codesandbox.svg"
+  />
+</a>
