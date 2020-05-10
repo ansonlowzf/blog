@@ -5,6 +5,6 @@ import { Link } from "gatsby"
 export default () => (
   <Fragment>
     A self taught front-end developer documenting and sharing his learning
-    process. A little more story <Link to="/about-me">about me</Link>
+    experience. More <Link to="/about-me">about me</Link>
   </Fragment>
 )
