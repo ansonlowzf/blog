@@ -153,23 +153,24 @@ Use the data to create **SideDrawer** as below:-
 ```js
 const toggleDrawer = (anchor, open) => event => {...};
 
-const sideDrawerList = (anchor) => (
-  <div
-    role="presentation"
-    onClick={toggleDrawer(anchor, false)}
-    onKeyDown={toggleDrawer(anchor, false)}
-  >
-    {navLinks.map(({ title, path }) => (
+const sideDrawerList = anchor => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
       <List component="nav">
-        <a href={path} key={title}>
-          <ListItem button>
-            <ListItemText primary={title} />
-          </ListItem>
-        </a>
+        {navLinks.map(({ title, path }) => (
+          <a href={path} key={title} className={classes.linkText}>
+            <ListItem button>
+              <ListItemText primary={title} />
+            </ListItem>
+          </a>
+        ))}
       </List>
-    ))}
-  </div>
-)
+    </div>
+  );
 ```
 
 **Important:** Please do not use anchor tag for internal navigation in your React.js project. I use it for demo purpose only. My real project is using **Link** component from Gatsby.js, you can always use your favourite library such as **reach/router**, **react-router** or other similar libraries.
@@ -195,11 +196,11 @@ const useStyles = makeStyles({
 })
 ```
 
-Then call it inside the component and assign it classes variable
+Then call it inside the component and assign to classes variable
 
 ```js
 const SideDrawer = () => {
-  const classes = useStyles(); // This
+  const classes = useStyles(); // Add this
 
   ...restOfCode
 }

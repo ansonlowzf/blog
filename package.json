@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-blog-theme",
+  "name": "ansonlowzf-blog",
   "private": true,
   "version": "0.0.1",
   "scripts": {
@@ -9,7 +9,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@theme-ui/mdx": "^0.3.0",
     "gatsby": "^2.20.36",
+    "gatsby-plugin-catch-links": "^2.3.1",
     "gatsby-plugin-google-analytics": "^2.2.5",
     "gatsby-plugin-manifest": "^2.4.0",
     "gatsby-plugin-sitemap": "^2.3.6",

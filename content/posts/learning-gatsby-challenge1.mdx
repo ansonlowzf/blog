@@ -4,38 +4,34 @@ date: 2020-03-28
 tags: ["Gatsbyjs", "100DaysOfGatsby"]
 ---
 
-Thank you Gatsby's team and Hashim Warren to start the 100DaysOfGatsby challenge. It's a step by step guide to learn gatsby.js from scratch. Every week, Hashim email the challenge together with link resources to help you complete the challenge.
-
-By the time, you reading this blog. The challenges might already end.
-
-In case you are interested, you can find all the challenges in Gatsby.js blog. Visit <a href="https://www.gatsbyjs.org/blog/tags/100-days-of-gatsby" target='_blank' rel='noreferrer noopener'>100DaysOfGatsby</a> for the challenges content.
+Thank you Gatsby's team and Hashim Warren to start the [100DaysOfGatsby's challenge](https://www.gatsbyjs.org/blog/tags/100-days-of-gatsby). It's a step by step guide to learn Gatsby.js from scratch. Every week, Hashim email the challenge together with link resources to help you complete the challenge.
 
 ## Challenge 1: Create a Gatsby blog from scratch
 
-First, I learned the basic of gatsby.js in this <a href="https://www.gatsbyjs.org/tutorial/" target='_blank' rel='noreferrer noopener'>Gatsby's tutorials</a>. I strongly encourage you to complete the official tutorial at least once, It help you understand how gatsby.js works.
+First, I learned the basic of Gatsby.js in this [Gatsby's tutorial](https://www.gatsbyjs.org/tutorial/). I strongly encourage you to complete the official tutorial at least once, It help you understand how Gatsby.js works.
 
-After complete the lessons, I check out the <a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank" rel="noreferrer noopener">Gatsby Starter Library</a> to find a starter for my blog. After applying the filter, there are around 133 blog starters. Time passed 1 hour++, I still can’t decide which one to use.
+After complete the lessons, I check out the [Gatsby Starter Library](https://www.gatsbyjs.org/starters/?v=2) to find a starter for my blog. After applying the filter, there are around 133 blog starters. Time passed 1 hour++, I still can’t decide which one to use.
 
 When I'm stuck, It means it's a time to take a rest and grab a cup of coffee...
 
-Come back to the desk, continue browsing gatsby.js' website. Tic toc, tic toc, don't know how long the time had passed, I reached <a href="https://www.gatsbyjs.org/tutorial/using-a-theme/" target="_blank" rel="noreferrer noopener">this page</a> and see a starter which cannot be found in the starter library, weird huh?
+Come back to the desk, continue browsing Gatsby.js' website. Tic toc, tic toc, don't know how long the time had passed, I reached [this page](https://www.gatsbyjs.org/tutorial/using-a-theme/) and see a starter which cannot be found in the starter library, weird huh?
 
 Open **Git Bash**, Run the command:-
 
-```shell
+```sh
 gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
 ```
 
 Then:-
 
-```shell
+```sh
 cd my-blog
 gatsby develop
 ```
 
 What? error!? The following message show in terminal
 
-![gatsby starter blog theme error in terminal](../assets/gatsby-starter-blog-theme-error.jpg)
+![gatsby starter blog theme error in terminal](https://res.cloudinary.com/ansonlowzf/image/upload/v1589111882/AnsonLowZF%20Blog/gatsby-starter-blog-theme-error_xcezmu.jpg)
 
 Double-check the page,
 
@@ -45,15 +41,15 @@ Dig here dig there, wondering... continue scratching head...
 
 20 mins later, oh... maybe I need to run:-
 
-```shell
+```sh
 npm install
 ```
 
-But, It just audit the node packages,
+But, It just run an audit action,
 
 Again, I try to run:-
 
-```shell
+```sh
 gatsby develop
 ```
 
@@ -61,17 +57,17 @@ Open localhost:8000 in my browser.
 
 The following error show up in the browser
 
-![gatsby starter blog theme error in browswer](../assets/gatsby-starter-blog-theme-error2.jpg)
+![gatsby starter blog theme error in browswer](https://res.cloudinary.com/ansonlowzf/image/upload/v1589112144/AnsonLowZF%20Blog/gatsby-starter-blog-theme-error2_jhki2n.jpg)
 
-Close **Git Bash** and open the project folder with VS Code and run:-
+Close **Git Bash** and open the project with VS Code and run:-
 
-```shell
+```sh
 gatsby develop
 ```
 
 Yo! It works. Hundred of (?) appear on my head.
 
-I not sure why it's not working in **Git Bash** but work in VS Code's terminal which also git **Git Bash**
+I not sure why it's not working in **Git Bash** but work in VS Code's terminal which also using git **Git Bash**
 
 Afterwards I update node packages `npm update` and `gatsby develop` to check out the site
 
@@ -121,7 +117,7 @@ This one is pretty straight forward
 
 I check **node_modules/gatsby-theme-blog**
 
-![node module gatsby them blog](../assets/gatsby-theme-blog.png)
+![node module gatsby them blog](https://res.cloudinary.com/ansonlowzf/image/upload/v1589112339/AnsonLowZF%20Blog/gatsby-theme-blog_epxhzm.png)
 
 There are 11 components in the components folder, if you create a file exactly match the name and save it into **src/gatsby-theme-blog/components**. You can overwrite or modify the component with your code.
 

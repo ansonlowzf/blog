@@ -16,10 +16,10 @@ export default {
   blockquote: {
     color: `inherit`,
     borderLeft: `calc(0.2vw + 2px) solid orange`,
-    padding: `0.1% 6% 0.1% 4%`,
-    margin: `1.6em 1vw`,
-    fontSize: `0.92em`,
-    lineHeight: `1.4em`,
+    paddingLeft: `4%`,
+    marginLeft: `0`,
+    fontSize: `0.92rem`,
+    lineHeight: `1.75rem`,
     opacity: 0.8,
     "&.translation": {
       fontSize: `1em`,

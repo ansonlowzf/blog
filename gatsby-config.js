@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-theme-blog`,
