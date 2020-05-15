@@ -1,0 +1,247 @@
+---
+title: How To Create React Parallax Effect With Hooks
+date: 2020-05-14
+tags: [react.js]
+---
+
+React ecosystem is huge, most of the things you want to do, there is a solution.
+Today, I would like to create React parallax effect with hooks without using any library or node packages
+
+I want to build a hero section with parallax scrolling effect.
+Text and image move at a different speed.
+
+It's easy to do with vanilla JavaScript.
+What if I want to implement the same JavaScript in React.js?
+
+React.js approach is different, I stuck for quite some time because I do not think in React.js.
+
+I googled around, most of the guides, tutorials and articles are using:-
+
+1. [React-parallax](https://www.npmjs.com/package/react-parallax)
+2. [React Spring](https://www.react-spring.io/)
+3. [Framer Motion ](https://www.framer.com/motion/)
+
+When I try to a find solution in StackOverflow,
+Most of the solution is either with Class component or long React Refs code
+
+If you are learning React.js around mid of the year 2019, It's time for React Hooks.
+I skipped learning Class component.
+Hence, I not sure how to resolve Class component and convert it to functional component with Hooks
+
+What I want to do is apply the following JavaScript in my hero component with Hooks only.
+
+```js
+// JavaScript script to target parallax container and
+// slow down Yoffset for 50%
+window.addEventListener("scroll", function () {
+  const parallax = document.querySelector(".parallax")
+  let scrollPosition = window.pageYOffset
+
+  parallax.style.transform = `translateY(${scrollPosition * 0.5}px)`
+})
+```
+
+I convert my HTML mark up to JSX
+
+```js
+<div className="App">
+  <section className="hero">
+    <img
+      src="https://i.picsum.photos/id/10/1080/960.jpg"
+      alt="test"
+      className="parallax"
+    />
+    <div className="text-wrapper">
+      <h1 className="headline">Parallax</h1>
+      <h2 className="sub-headline">Scrolling effect</h2>
+    </div>
+  </section>
+</div>
+```
+
+## My first try
+
+I thought I can just wrap the JavaScript code with parentheses, like how we execute JavaScript code in JSX
+
+This is what I did
+
+```js
+<div className="App">
+  <section className="hero">
+    <img
+      src="https://i.picsum.photos/id/10/1080/960.jpg"
+      alt="test"
+      className="parallax"
+    />
+    <div className="text-wrapper">
+      <h1 className="headline">Parallax</h1>
+      <h2 className="sub-headline">Scrolling effect</h2>
+    </div>
+  </section>
+  <!-- Make space to scroll -->
+  <section className="overflow"></section>
+</div>
+
+{window.addEventListener("scroll", function () {
+  const parallax = document.querySelector(".parallax")
+  let scrollPosition = window.pageYOffset
+
+  parallax.style.transform = `translateY(${scrollPosition * 0.5}px)`
+})}
+```
+
+What a genius, am I?
+
+## Second try
+
+Continue my research and read more article. Oh I see, if I want to addEventListener, I should put them in useEffect Hooks.
+
+Without thinking further
+
+I did a genius thing again
+
+```js
+export default function App() {
+
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+  const parallax = document.querySelector(".parallax")
+  let scrollPosition = window.pageYOffset
+
+  parallax.style.transform = `translateY(${scrollPosition * 0.5}px)`
+  }, []);
+
+  return (
+    <div className="App">
+      <section className="hero">
+        <img
+          src="https://i.picsum.photos/id/10/1080/960.jpg"
+          alt="test"
+          className="parallax"
+          style={{
+            transform: `translateY(${offset * 0.5}px)`
+          }}
+        />
+        <div className="text-wrapper">
+          <h1 className="headline">Parallax</h1>
+          <h2 className="sub-headline">Scrolling effect</h2>
+        </div>
+      </section>
+    </div>
+  );
+}
+```
+
+Ya ya, this is my problem with lousy React.js's fundamental.
+Oh my god, I don’t know how to think in React.
+So sad!
+
+## Final try before asking help
+
+More googling with different keywords,
+React parallax effect,
+parallax scroll,
+parallax with React hooks,
+scrolling in React,
+React onscroll event and ...More
+
+Continue reading more articles. I getting more pro in React.js already.
+Yeah, I can do it.
+
+```js
+export default function MyApp() {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setOffset(window.pageYOffset)
+    }
+  }, [])
+
+  return (
+    <div className="App">
+      <section className="hero">
+        <img
+          src="https://i.picsum.photos/id/10/1080/960.jpg"
+          alt="test"
+          className="parallax"
+          style={{
+            transform: `translateY(${offset * 0.5}px)`,
+          }}
+        />
+        <div className="text-wrapper">
+          <h1 className="headline">Parallax</h1>
+          <h2 className="sub-headline">Scrolling effect</h2>
+        </div>
+      </section>
+    </div>
+  )
+}
+```
+
+Then what? Ah... I don't know how to implement the rest of the JavaScript code into this React's component.
+Where should I put the transform and the translateY?
+
+Why, I'm so noob ~
+
+No choice, I need to trouble my big brother again.
+SOS ah! Malcolm. He is a React.js expert [Malcolm Kee](https://twitter.com/Malcolm_Kee) and a fanatic.
+He always guides and helps React beginner in my country - Malaysia.
+He organizes [React KL's meetup](https://www.kl-react.com/) to gather React developers to share tips and tricks and latest infomation about React.js to the local React.js community.
+
+I reach him out with Twitter and send my code to him though CodeSandbox
+
+A few moments later,
+
+He replies me the following with code.
+
+```js
+import * as React from "react"
+import { useEffect, useState } from "react"
+import "./styles.css"
+
+export default function App() {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    function handleScroll() {
+      setOffset(window.pageYOffset)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  return (
+    <div className="App">
+      <section className="hero">
+        <img
+          src="https://i.picsum.photos/id/10/1080/960.jpg"
+          alt="test"
+          className="parallax"
+          style={{
+            transform: `translateY(${offset * 0.5}px)`,
+          }}
+        />
+        <div className="text-wrapper">
+          <h1 className="headline">Parallax</h1>
+          <h2 className="sub-headline">Scrolling effect</h2>
+        </div>
+      </section>
+    </div>
+  )
+}
+```
+
+I think he solves it in 30 sec.
+
+After seeing his code, I feel like I don't understand React.js at all.
+
+I need to strengthen my React.js fundamental.
+
+Thank you, Malcolm, I understand React.js a little bit more today.
+
+Check the Parallax effect in [CodeSandbox](https://codesandbox.io/s/parallax-effect-with-react-hooks-2k5hq?file=/src/App.js)
