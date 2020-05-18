@@ -1,0 +1,54 @@
+---
+title: Enable Gatsby Incremental Builds In My Blog
+date: 2020-05-18
+tags: ["Gatsbyjs", "Netlify"]
+---
+
+Received an email from Netlify last week, said Gatsby.js released something called incremental builds to reduces the amount of work required to build a Gatsby.js site.
+
+## What is the incremental builds?
+
+Based on my understanding, it's something like when I push my website update to Netlify.
+Instead of rebuilding the entire site, Netlify will just update the part I make a change.
+Significantly decrease the Netlify build time especially for a large site.
+
+The more you consume Netlify build time, the more you need to pay.
+First 300 minutes of build time is FREE,
+Next 500 minutes is US 7.
+
+Enable user to reduce the build time with plugin will lower Netlify company's profit?
+Or bring more benefits to Netlify?
+I don't know, enable this kind of plugin is buddha's heart.
+
+Although, my site still not large. >.<
+But, this will not stop me from trying out.
+
+Let's dig the guide!
+
+## Step 1: Upgrade Gatsby.js to the latest
+
+Must be latest than v2.20.4. By the time you read this, Gatsby.js surely latest than the required version. In case you want to check out the version of Gatsby.js:-
+
+```sh
+npm list gatsby
+```
+
+The time I run this command, my Gatsby.js version is v2.20.36
+
+## Step 2: Enable Netlify Build Plugins
+
+I log in to my Netlify account, navigate to the right-hand upper corner. Click **Build Plugins**
+
+![Netlify dashboard](https://res.cloudinary.com/ansonlowzf/image/upload/v1589802852/AnsonLowZF%20Blog/netlify-build-plugin_btql9r.png)
+
+Then click **Enable the beta**
+
+![Cannot find anson blog](https://res.cloudinary.com/ansonlowzf/image/upload/v1589802856/AnsonLowZF%20Blog/netlify-plugin-cannot-find-ansonblog_xshwhg.png)
+
+Ops, I cannot find my blog to enable the Netlify build plugin.
+Maybe my site still small in bundle?
+
+Do you know what going on? Why my blog is not listed yet?
+Feel free to reach me out at [Twitter](https://twitter.com/AnsonLowZF)
+
+I'll be back to check it out when my blog grow.
