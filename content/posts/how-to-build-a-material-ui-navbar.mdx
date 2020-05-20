@@ -31,6 +31,15 @@ Then create **src/components/Header.jsx**
 
 You can just use JS extension, I use JSX extention is because it enables Emmet feature in VS Code.
 
+In case you insist to use JS extension but still want to use the Emmet feature,
+you can add the following JSON to your VS Code setting.
+
+```json
+"emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+    },
+```
+
 ## Create navbar
 
 I create navigation links variable in the **Header** component. You could also create a JSON or JS file separately and import it to the **Header** component. Since this is a small project, create the nav links in the component let us work easier.
