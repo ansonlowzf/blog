@@ -1,0 +1,60 @@
+---
+title: Configure File Association for MDX
+date: 2020-05-19
+tags: ["Markdown", "MDX"]
+---
+
+This is what I was facing when I started to write in MDX in VS Code.
+All MDX file display as plain text.
+A New developer like me sometimes struggles to find out the solution.
+
+Although, this article is short. In fact, It's taken me more than an hour to find the solution.
+It's so simple but...
+
+## MDX in plain text
+
+VS Code displaying MDX file as plain text,
+
+![MDX file shown in plain text](https://res.cloudinary.com/ansonlowzf/image/upload/v1589870788/AnsonLowZF%20Blog/plain-text-mdx_ngjxf1.png)
+
+Oh, It's hard to read and write without syntax highlight.
+
+I tried to search the marketplace to find an extension.
+Found one named **Markdown All in One**
+
+It provides keyboard shortcut to write Markdown faster,
+I thought it might have some setup help to display MDX file too.
+
+My thoughts are too complex, I think too much.
+Of course, it is not working.
+
+Then I try to click the plain text button located at the bottom right-hand corner to see whether I can change something.
+
+![Click the plain text button](https://res.cloudinary.com/ansonlowzf/image/upload/v1589872963/AnsonLowZF%20Blog/click-the-plain-text_odtvxx.png)
+
+Wow, I accidentally discovered this option **configure file association for MDX**
+
+![Configure file association for MDX option](https://res.cloudinary.com/ansonlowzf/image/upload/v1589873093/AnsonLowZF%20Blog/configure-file-mdx_zdaoes.png)
+
+Click and scroll to choose Markdown,
+
+By the time, I click this option,
+VS Code will not automatically refresh and display Markdown syntax highlight.
+
+If you're facing the same problem,
+I mean It still displays in plain text,
+Just close your VS Code and start again.
+
+VS Code evolves fast.
+When I try to set this up in my desktop computer.
+It refreshes and displays the syntax highlight fast and concise.
+
+Alternately, you can open VS Code setting in json,
+copy and paste the following code,
+It work the same.
+
+```json
+"files.associations": {
+"*.mdx": "markdown"
+},
+```
