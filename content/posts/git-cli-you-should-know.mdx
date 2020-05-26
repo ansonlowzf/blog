@@ -112,16 +112,21 @@ Or `:q; + enter` to exit without saving
 | Description                                   |                Git Command Line                |
 | :-------------------------------------------- | :--------------------------------------------: |
 | Pull changes from remote master               |            `git pull origin master`            |
+| Pull changes to branch                        |            `git pull origin master`            |
 | Pull from remote master and set as upstream   |          `git pull -u origin master`           |
 | Pull from remote master after set up upstream |                   `git pull`                   |
 | Pull changes from remote to local branch      | `git pull [remoteNetworkAddress] [branchName]` |
 
+**checkout to branch before pull changes to branch**
+
 ## Clone
 
-| Description                                                                                     |               Git Command Line               |
-| :---------------------------------------------------------------------------------------------- | :------------------------------------------: |
-| Clone from a remote repository to local (cd to the folder you want to clone before runnind CLI) |      `git clone [remoteNetworkAddress]`      |
-| Clone and give it a new name                                                                    | `git clone [remoteNetworkAddress] [newName]` |
+| Description                             |               Git Command Line               |
+| :-------------------------------------- | :------------------------------------------: |
+| Clone from a remote repository to local |      `git clone [remoteNetworkAddress]`      |
+| Clone and give it a new name            | `git clone [remoteNetworkAddress] [newName]` |
+
+**cd to the folder you want to clone before runnind `git clone` CLI**
 
 ## Fetch
 
