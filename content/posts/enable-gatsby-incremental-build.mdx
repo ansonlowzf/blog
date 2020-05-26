@@ -1,29 +1,28 @@
 ---
-title: Enable Gatsby Incremental Builds In My Blog
+title: "Netlify Plugin: Enable Gatsby Incremental Builds In My Blog"
 date: 2020-05-18
 tags: ["Gatsbyjs", "Netlify"]
 ---
 
-Received an email from Netlify last week, said Gatsby.js released something called incremental builds to reduces the amount of work required to build a Gatsby.js site.
+Received an email from Netlify last week, said Gatsby.js released something called incremental builds.
+It help to reduce the amount of work required to build a Gatsby.js site.
 
 ## What is the incremental builds?
 
-Based on my understanding, it's something like when I push my website update to Netlify.
+Based on my understanding, it's something like when I push my website's update to Netlify.
 Instead of rebuilding the entire site, Netlify will just update the part I make a change.
 Significantly decrease the Netlify build time especially for a large site.
 
-The more you consume Netlify build time, the more you need to pay.
+The more you use Netlify's build time, the more you need to pay.
 First 300 minutes of build time is FREE,
 Next 500 minutes is US 7.
 
-Enable user to reduce the build time with plugin will lower Netlify company's profit?
-Or bring more benefits to Netlify?
-I don't know, enable this kind of plugin is buddha's heart.
+I not sure why Netlify does this.
+Enable user to reduce the build time with plugin mean Netlify gain less income.
+If Netlify aware of this and still provide this kind of plugin to increase user experience,
+it's a buddha's heart enterprise. Thank you Netlify
 
-Although, my site still not large. >.<
-But, this will not stop me from trying out.
-
-Let's dig the guide!
+Enough talk, let's dig the [guide](https://www.netlify.com/blog/2020/04/23/enable-gatsby-incremental-builds-on-netlify/)!
 
 ## Step 1: Upgrade Gatsby.js to the latest
 
@@ -37,18 +36,75 @@ The time I run this command, my Gatsby.js version is v2.20.36
 
 ## Step 2: Enable Netlify Build Plugins
 
-I log in to my Netlify account, navigate to the right-hand upper corner. Click **Build Plugins**
+I log in to my Netlify account, at the upper right-hand corner. Click **Build Plugins**
 
-![Netlify dashboard](https://res.cloudinary.com/ansonlowzf/image/upload/v1589802852/AnsonLowZF%20Blog/netlify-build-plugin_btql9r.png)
+![Netlify homepage](https://res.cloudinary.com/ansonlowzf/image/upload/v1590403259/AnsonLowZF%20Blog/netlify-homepage-edited_vmxywl.png)
 
 Then click **Enable the beta**
 
+![Netlify dashboard](https://res.cloudinary.com/ansonlowzf/image/upload/v1589802852/AnsonLowZF%20Blog/netlify-build-plugin_btql9r.png)
+
+Choose the site you want to enable the build plugins.
+
 ![Cannot find anson blog](https://res.cloudinary.com/ansonlowzf/image/upload/v1589802856/AnsonLowZF%20Blog/netlify-plugin-cannot-find-ansonblog_xshwhg.png)
 
-Ops, I cannot find my blog to enable the Netlify build plugin.
-Maybe my site still small in bundle?
-
-Do you know what going on? Why my blog is not listed yet?
+I don't see my blog is listed.
+I not sure why.
+Do you know what going on?
 Feel free to reach me out at [Twitter](https://twitter.com/AnsonLowZF)
 
-I'll be back to check it out when my blog grow.
+## Step 3: Add the Gatsby Cache Netlify Build Plugin
+
+No choice, I have to choose my company website to try out the plugin.
+The file size is also bigger than my blog.
+Good for trying out incremental build plugin.
+
+By looking at the guide, it mentioned something called **netlify.toml**
+
+![Gatsby incremental build step 3](https://res.cloudinary.com/ansonlowzf/image/upload/v1590404288/AnsonLowZF%20Blog/netlify-incremental-build-guide_r3aj6e.png)
+
+Is this file in Netlify site or in my gatsby.js project?
+
+digging... finding... searching...
+
+A few moments later time again
+
+I think I should google it before trying to find it out myself.
+
+![netlify.toml file-based configuration](https://res.cloudinary.com/ansonlowzf/image/upload/v1590404760/AnsonLowZF%20Blog/netlify-file-based-configuration_i2ynmk.png)
+
+Ops, forgive me. I'm a real noob.
+
+I add **netlify.toml** in my gatsby's project root directory
+
+Copy and paste the following code to the file
+
+```toml
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+```
+
+## Step 4: Add the flag to enable Gatsby incremental builds
+
+Go to **package.json**
+
+Replace the build script with
+
+```json
+ "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages"
+```
+
+According to the guide, adding --log-pages can see what Gatsby builds on each run
+
+Ok, the exciting time is coming. Time to try incremental builds. Yohoo~~~
+
+Push the new update and wait for Netlify to build.
+
+![netlify incremental build result first time](https://res.cloudinary.com/ansonlowzf/image/upload/v1590406071/AnsonLowZF%20Blog/netlify-incremental-builds-result-1st-time_dzz3ak.png)
+
+Ops~ si~
+My bad, this is the first time I setup this Builds Plugin.
+
+No result is shown for the first time.
+
+Will update this blog when I get the result
