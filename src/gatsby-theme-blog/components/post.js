@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Styled, css } from "theme-ui"
 import PostFooter from "gatsby-theme-blog/src/components/post-footer"
 import Layout from "gatsby-theme-blog/src/components/layout"
 import SEO from "gatsby-theme-blog/src/components/seo"
