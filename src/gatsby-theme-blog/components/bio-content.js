@@ -1,10 +1,11 @@
-import React, { Fragment } from "react"
-// import { Link } from "gatsby"
+import * as React from "react"
 import { Styled } from "theme-ui"
 
 export default () => (
-  <Fragment>
-    A self taught front-end developer documenting and sharing his learning
-    experience. More <Styled.a href="/about-me">about me</Styled.a>
-  </Fragment>
+  <>
+    A self-taught developer documenting and sharing his learning experience.
+    <br />
+    React.js &bull; Gatsby.js &bull; Next.js soon. More{" "}
+    <Styled.a href="/about-me">about me</Styled.a>
+  </>
 )
