@@ -1,0 +1,96 @@
+---
+image:
+title: Git Workflow As A Self-Taught Developer
+date: 2020-05-27
+tags: ["Git"]
+---
+
+Today blog is to share how I use git version control and GitHub in my web development project.
+
+I also document the git CLI I often use in [Git Command Cheatsheet](/git-cli-you-should-know)
+
+## Work With Master Branch At First
+
+When I start a new project.
+I only use the master branch until I launch the project.
+It's not practical to work in different branches before the project on live.
+
+## Create Branches And Constantly Update The Project
+
+Take this blog as an example
+
+I created the branches as following
+
+1. **add-blog-post1** - To add new blog post, error optimization & update blog
+1. **add-blog-post2** -
+1. **feature** - To add a feature such as tags, pagination (still working)
+1. **Style** - To test the CSS style
+
+If needed, I will create more branches to complete a certain task.
+
+The best benefit working with branches is my master branch will never be polluted especially I use Netlify continuous deployment.
+Whenever I push my code to my GitHub master branch, Netlify will run a build to update my project.
+
+Just imagine if I use master branch and my codes are broken, what can I do?
+Except running `git checkout -- .` to reset to the last commit, I not sure what else I can do.
+
+## Pull Request (PR) in GitHub
+
+Yes, I merge the pull request in GitHub rather than merging it locally.
+Although, I’m self-employed. I keep this practice.
+Someday in future, When I need a partner or I hire a person to work in my project.
+I already know how to do pull request in GitHub.
+
+Do you know GitHub has iOS and Android app now?
+I can merge the pull request remotely whenever my partner or developer push the new update.
+
+## How To Perform Pull Request In GitHub?
+
+Say you just finish writing a blog post and push to your GitHub repository
+
+```sh
+git push origin blog-post
+```
+
+When you visit your GitHub repository, you will see **Compare & pull request** shows up.
+
+![GitHub compare & pull request ](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561391/AnsonLowZF%20Blog/compare-pull-request_z4vp2j.png)
+
+Click to open a pull request
+
+![open pull request](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561836/AnsonLowZF%20Blog/open-pull-request_br9um7.png)
+
+The title is your commit message.
+Write your new title if needed, and write your description to help you understand the pull request in future.
+
+Most importantly, help your partner or colleague to understand what is this PR about.
+
+If you are contributing to open source project.
+You should write it in short and concise to help the maintainer to easily pick up what your PR is about.
+
+Don't follow what I do in this part.
+I not writing a description.
+Ya, I know, it's not a good practice.
+I'll only write the description if I push complicated update which I need to write a note to remind me something.
+I work alone anyway, bleh~
+
+Sorry guys, forgive me laziness and please write a description.
+
+Ok, continue...
+
+![comfirm merge](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561984/AnsonLowZF%20Blog/confirm-merge_umrvhl.png)
+
+Once you finish writing your title and description, create your pull request and confirm the merge by yourself.
+It seem a bit weird at first, it's like you are playing 2 roles at once - the maintainer and the contributor.
+It's good to learn 2 roles in your project, isn't it?
+
+![merge pull request](https://res.cloudinary.com/ansonlowzf/image/upload/v1590562150/AnsonLowZF%20Blog/merge-pull-request_wy19lb.png)
+
+Finally, merge the pull request to your master branch.
+If you are using Netlify or similar hosting service, your website will be updated.
+
+![merge completed](https://res.cloudinary.com/ansonlowzf/image/upload/v1590562287/AnsonLowZF%20Blog/merge-completed_wekbpc.png)
+
+You might want to delete the branch if you are a maintainer of an open-source project.
+In my case, I don't delete any branch in my project.
+Every branch I created have a role.
