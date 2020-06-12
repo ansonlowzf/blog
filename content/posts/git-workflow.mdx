@@ -1,0 +1,128 @@
+---
+image: https://res.cloudinary.com/ansonlowzf/image/upload/v1591937109/AnsonLowZF%20Blog/git-workflow_ovecom.png
+title: Git Workflow As A Self-Taught Developer
+date: 2020-06-09
+tags: ["Git"]
+---
+
+This article is to share how I use “Git Version Control (Git)” and “GitHub” in my web development project.
+
+## Why Use Git Version Control?
+
+You might ask, why I need to use Git since I’m a lone-wolf? These are the reasons:-
+
+- To keep track of the code I wrote and revise it if needed.
+- I can do multiple works simultaneously.
+- I can rewind to any version I want.
+
+## Why Must Use GitHub?
+
+- My code is safe even I lost my computer
+- In case I broke my code, I have a backup.
+- Something wrong with the codebase in your local development
+
+> **Tips**
+>
+> Don't run `npm update` on your master branch. If any of the dependancies has error, you going to face a chaos. Often, you've to wait until the maintainer fix the error.
+
+In case you just want a reference, I document the often use Git CLI in this [Cheatsheet](/git-cli-you-should-know).
+
+## How Do I Work With Git As A Self-taught Developer?
+
+Prerequisite
+
+- This is not a tutorial article, I assume you already have some basic knowledge about Git & GitHub.
+- If you don’t know what is Git & GitHub, I encourage you to take this [Git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control) before reading further.
+- This is an experience talk about Git & GitHub.
+
+### Started A New Project
+
+When I start a new project. I’ll just use the master branch. Since I work alone, I don’t create branches just to build a page, section, or feature. The only exceptional case is when I want to test a feature which I not familiar at all. It’s not fun to switch from branch to branch for a startup website.
+
+### After Deploying The Project
+
+After deploying the website in production. I’ll not directly modify a single code in the master branch. I have to make sure, no broken codes are going to pollute the master branch.
+
+### Create Branches To Update The Project
+
+This is when **git branch** come in handy. Take this blog as an example.
+
+I create the following branches:-
+
+- gitworkflow-blog
+- webresources-blog
+- pagination-feature
+- hero-style
+- And so on
+
+You may have noticed, I write the word “blog”, “feature” or “style” at the end of a branch name.
+
+Why?
+
+The main reason is I use autocompletion in the terminal.
+
+After I created the branches, I can just type “git” (the first 3 letters) then press tab in the keyboard to autocomplete the branch name.
+
+If I write the word “blog” in the beginning, I have to always type the “blog” word which is a repetition.
+
+### Merge the branch
+
+After finish writing a blog post, add and commit the blog post. Switch to master branch and run `git merge branchName` in the terminal. Then push to the remote master branch.
+
+However, I prefer to merge the branch in GitHub.
+
+## Merge Pull Request (PR) in GitHub
+
+I often merge the pull request in GitHub. You might say, this is a bit redundant. But I have a few reasons why I do so.
+
+- I merge the PR only when I want to update my blog. It's like scheduling update my blog
+- It's flexible to merge the PR remotely with GitHub mobile app.
+- I know how to contribute to an open-source project. It works similarly.
+
+### How To Merge Pull Request In GitHub?
+
+Say you just finish writing a blog post and push to your GitHub repository
+
+```
+git push origin blog-post
+```
+
+When you visit your GitHub repository, you will see **Compare & pull request** shows up.
+
+![GitHub compare & pull request](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561391/AnsonLowZF%20Blog/compare-pull-request_z4vp2j.png)
+
+Click to create a pull request
+
+![click to create a pull request](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561836/AnsonLowZF%20Blog/open-pull-request_br9um7.png)
+
+The title is your commit message. Write your new title if needed, and write your description to help you understand the pull request in future.
+
+Most importantly, help your partner or colleague to understand the PR.
+
+If you are contributing to open source project. You should write it in short and concise to help the maintainer to easily pick up the PR.
+
+Don’t follow what I do in this part. I not writing the description. Ya, I know, it’s not a good practice. I’ll only write the description if PR is not obvious which I need to write a note to help me to recall. I work alone anyway, bleh~ Good excuses~
+
+Sorry guys, forgive my laziness and you should follow good practice. Please write a description.
+
+Ok, next…
+
+![click to comfirm merge](https://res.cloudinary.com/ansonlowzf/image/upload/v1590561984/AnsonLowZF%20Blog/confirm-merge_umrvhl.png)
+
+Once you finish writing your title and description, create your pull request and confirm the merge all by yourself. It seems a bit weird at first, it’s like you are playing 2 roles in this situation. It’s good to learn how to act as the project’s maintainer and the contributor at once, isn’t it?
+
+![click to merge pull request](https://res.cloudinary.com/ansonlowzf/image/upload/v1590562150/AnsonLowZF%20Blog/merge-pull-request_wy19lb.png)
+
+Finally, merge the pull request to your master branch.
+
+![merge the PR completed](https://res.cloudinary.com/ansonlowzf/image/upload/v1590562287/AnsonLowZF%20Blog/merge-completed_wekbpc.png)
+
+Delete the branch you no longer using, and keep the branch if you want to reuse it.
+
+That's it, Thank you for reading~
+
+---
+
+Has something would like to talk or share with me? Comment at
+
+[https://twitter.com/AnsonLowZF/status/1271304810608734209](https://twitter.com/AnsonLowZF/status/1271304810608734209)

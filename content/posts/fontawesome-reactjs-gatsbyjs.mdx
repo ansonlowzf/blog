@@ -1,0 +1,161 @@
+---
+image: https://res.cloudinary.com/ansonlowzf/image/upload/v1590975229/AnsonLowZF%20Blog/react-fontawesome_b0tysi.png
+title: Fontawesome 5 in Reactjs & Gatsbyjs Project
+date: 2020-06-02
+tags: ["Reactjs", "Gatsbyjs", "Fontawesome"]
+---
+
+How to use Fontawesome 5 in your Reactjs and Gatsbyjs project?
+Why I can't find Facebook, Twitter, Instagram and other brand icons in the Reactjs Fontawesome?
+
+Let's begin.
+
+## How To Install Fontawesome In Reactjs & Gatsbyjs Project?
+
+```sh
+npm i @fortawesome/fontawesome-svg-core
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/react-fontawesome
+```
+
+**Note**: You might think the spelling is wrong.
+It's not, these are the official Fontawesome's npm packages.
+Check out the [Fontawesome npm doc here](https://www.npmjs.com/package/@fortawesome/react-fontawesome).
+
+## How To Use Fontawesome In Reactjs & Gatsbyjs Project?
+
+Visit [Fontawesome Search Gallery](https://fontawesome.com/icons?d=gallery&m=free).
+If you click the link, I already apply the free icon filter.
+In case, the filter is not applied.
+
+Click the free filter as shown below:-
+
+![search fontawesome icon](https://res.cloudinary.com/ansonlowzf/image/upload/v1590733051/AnsonLowZF%20Blog/fontawesome-search-icon_ts8z5s.png)
+
+Find the icon you want by keyword - home, coffee, sun, moon, twitter, arrow and so on.
+Please note that whichever icon name you find in Fontawesome, you have to convert it to camelCase.
+
+![Fontawesome search result - arrow up](https://res.cloudinary.com/ansonlowzf/image/upload/v1590888513/AnsonLowZF%20Blog/fontawesome-arrow-up_zztk1t.png)
+
+1. fa-arrow-up -> faArrowUp
+1. fa-social-panel -> faSocialPanel
+1. fa-book-open -> faBookOpen
+1. and so on
+
+Then you could use the icon in a component by:-
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
+
+const YourComponent () => {
+    return (
+        <>
+          <FontAwesomeIcon icon={faArrowUp} />
+        </>
+    )
+}
+
+export default YourComponent
+```
+
+## What if you want to use the same icon in a different component?
+
+Instead of importing the same icon again and again, you could use the **Fontawesome library**.
+
+How to use it?
+
+Go to **App.js**
+
+```js
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
+
+library.add(faSun, faMoon)
+```
+
+As simple as that, you can start using the icons in all your component by just:-
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+const YourComponentA = () => (
+  <div>
+    <FontAwesomeIcon icon={faSun} />
+    <FontAwesomeIcon icon={faMoon} />
+  </div>
+)
+
+export default YourComponentA
+```
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+const YourComponentB = () => (
+  <div>
+    <FontAwesomeIcon icon={faSun} />
+    <FontAwesomeIcon icon={faMoon} />
+  </div>
+)
+
+export default YourComponentB
+```
+
+## Why Twitter, Facebook, Google and other brand icons are missing in React's Fontawesome?
+
+When you try import twitter icon
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTwitter } from "@fortawesome/free-solid-svg-icons"
+
+const YourComponent = () => {
+  return <FontAwesomeIcon icon={faTwitter} />
+}
+
+export default YourComponent
+```
+
+The Twitter icon is not displaying.
+
+Why?
+
+It’s because brand icons have it own npm package.
+
+```sh
+npm i @fortawesome/free-brands-svg-icons
+```
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faTwitter } from "@fortawesome/free-solid-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
+
+const YourComponent = () => {
+  return <FontAwesomeIcon icon={faTwitter} />
+}
+
+export default YourComponent
+```
+
+Save your file now and check your component.
+
+The Twitter icon shows up.
+
+Find an error, feel free to reach me out:-
+
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">
+    Documenting how to use fontawesome 5 in Gatsbyjs project.{" "}
+    <a href="https://t.co/XaCwTjlwRi">https://t.co/XaCwTjlwRi</a>
+  </p>
+  &mdash; Anson LowZF (@AnsonLowZF){" "}
+  <a href="https://twitter.com/AnsonLowZF/status/1267643335411290112?ref_src=twsrc%5Etfw">
+    June 2, 2020
+  </a>
+</blockquote> <script
+  async
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
+></script>
