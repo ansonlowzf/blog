@@ -1,32 +1,31 @@
 ---
-title: How I Build A Website With Material-UI & Gatsby.js (2020)
+title: How I Build A Website With Gatsby.js & Material-UI (2020)
 date: 2020-05-26
 tags: ["Gatsby.js", "Material-UI"]
 ---
 
 import MyTwitter from "../../src/my-components/MyTwitter.jsx"
 
-This is to share how I build a production ready website with Material-UI & Gatsby.js.
-It might not be perfect but this is what I can build with my self-taught knowledge.
+This article is to share how I build a production-ready website with Gatsby.js & Material-UI.
 
-If you find anything wrong or any part I can improve, feel free to reach me
+If you find anything wrong or any part I can improve, feel free to reach me out at
 
 <MyTwitter />
 
-## Install Gatsby.js CLI
+## Prerequisite
 
-The best way to start a Gatsby.js project is to choose a starter from the Gatsby [starter library][gatsby starter library].
-You can save a lot of time.
-You don't need to initial a create-react-app project then install Gatsby.js and every plugin yourself.
-[gatsby starter library]: https://www.gatsbyjs.org/starters/?v=2
+- You know the foundation of HTML & CSS
+- You have the React.js basic's knowledge.
+- You know how Gatsby.js and Gatsby's plugins work.
+- You need to have basic knowledge of Material-UI.
 
-I like to use **gatsby-starter-default** to start a new project.
-It has all the plugins I need for a Gatsby's project.
-Check out the starter doc [here][gsd].
-You can always uninstall the plugin you don't need later.
-[gsd]: https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-default/
+---
+
+## Install Gatsby CLI
 
 Before you start a new Gatsby.js project, make sure you install gatsby-cli globally in your local machine.
+
+Open your favourite termianl and run the command:-
 
 ```sh
 npm install -g gatsby-cli
@@ -34,25 +33,176 @@ npm install -g gatsby-cli
 
 The gatsby-cli make your development work a lot easier, e.g:-
 
-1. Initial a new Gatsby.js project with a starter
-2. Start your local development server
-3. Remove local cache file
-4. Compile your application and make it ready for deployment
-5. Serve the production build in your local machine
-6. And more, I hear the creator is working on something called recipe.
+- Initial a new Gatsby.js project with a starter
+- Start your local development server
+- Remove local development cache and public file
+- Build your application and make it ready for deployment
+- Serve the production-build in your local machine
+- And more, I hear the Gatsby's team is working on something called recipe.
 
-**You will see all these in action in this blog**
+**You will see all these Gatsby CLI in action in this article**
 
-To start a new Gatsby.js project with gatsby-cli
+---
+
+## Choose A Gatsby's Starter
+
+The best way to start a Gatsby's project is to choose a starter from the [Gatsby Starter Library][gatsby starter library].
+You can save a lot of time.
+You don't need to initial a create-react-app's project then install Gatsby.js and every plugin manually.
+[gatsby starter library]: https://www.gatsbyjs.org/starters/?v=2
+
+I'll use **gatsby-starter-default** to start a new project.
+It has all the plugins I need for a Gatsby's project.
+
+In case you want to know what plugins are in this starter, check out the starter doc [here][gsd].
+For the plugin I don't use, I'll just leave as it is.
+You can choose to uninstall it.
+[gsd]: https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-default/
+
+---
+
+## Initial A Gatsby's Project
+
+Run the following Gatsby command in your terminal:-
 
 ```sh
-gatsby new my-project-name https://github.com/gatsbyjs/gatsby-starter-default
+gatsby new gm-site https://github.com/gatsbyjs/gatsby-starter-default
 
-cd my-project-name
+cd gm-site
+```
+
+You don't have to do the following, it's a personal preference.
+
+I like and always run:-
+
+```sh
+npm update
+```
+
+To update all npm packages to the latest.
+
+> You can run `npm outdated` to check how far are the packages version compare to latest.
+> Then only decide whether you want to update the npm packages.
+
+After complete the update, run
+
+```sh
 gatsby develop -o
 ```
 
 What is the "o" flag does?
-It help to automatically open the project in our browser when starting the development server.
+It helps to automatically open the project in the last used browser when starting the development server.
+
+> If you want to open your site manually, leave out the "o" flag.
+> After starting the local development server, go to your favourite browser and visit localhost:8000
+
+![gatsby starter default's homepage](https://res.cloudinary.com/ansonlowzf/image/upload/v1592296710/gm-site-blog/gatsby-starter-default-homepage_nb3tvm.png)
+
+---
+
+## Setup Material-UI in Gatsby Project.
+
+We are going to use Material-UI:-
+
+- Components
+- Icons
+- Styles
+
+Run the following command in your terminal:-
+
+```sh
+npm i @material-ui/core @material-ui/icons
+```
+
+> Material-UI styles had built into @material-ui/core already. Hence, we don't need to install @material-ui/styles
+
+---
+
+## Install gatsby-plugin-material-ui
+
+Run the following command in your terminal:-
+
+```sh
+npm i gatsby-plugin-material-ui
+```
+
+> You don't need this plugin to use Material-UI in Gatsby's project.
+> I tested it. It's work as usual.
+
+After complete the installation.
+
+Go to **gatsby-config.js**
+
+```js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+  ],
+}
+```
+
+The **stylesProvider** is important if you use any CSS-IN-JS libraries such as style-components & emotion.
+
+> The reason I add this option is to make sure Material-UI styles load first (inject first) before any other third party styling library in case I use one in future.
+
+Or you can just add:-
+
+```js
+module.exports = {
+  plugins: [`gatsby-plugin-material-ui`],
+}
+```
+
+This default option more than enough to cover general usage of Material-UI in the project.
+
+> **Share Experience**
+>
+> I faced a problem without adding injectFirst option.
+> My Material-UI styling is working fine in development mode.
+> Material-UI styling is not applying at first visit in production mode.
+> After refresh or navigate to other page, Material-UI will work as normal again.
+
+---
+
+## Test Material-UI
+
+Go to **./page/index.js**
+
+Left out the **SEO** component, remove everything inside **Layout** component.
+
+```js
+import { Button } from "@material-ui/core"
+```
+
+Add the **Button** component below the **SEO** component
+
+```js
+<Button variant="contained" color="primary">
+  Hello World
+</Button>
+```
+
+Save the file and check the site
+
+![First Material Ui Button component](https://res.cloudinary.com/ansonlowzf/image/upload/v1592620734/gm-site-blog/gm-site-first-button-component_tu7eqw.png)
+
+Material-UI is working in our Gatsby's project.
+
+> You might face this problem
+>
+> If you see some hook's error message and fail to develop the site, close the local server with Ctrl + c then quit VS Code.
+> Open your project with VS Code again, it should work fine again.
+> I forget to screen capture the error message, if you having this problem. Please provide me the screenshot.
+
+---
+
+---
 
 To Be Continued...
