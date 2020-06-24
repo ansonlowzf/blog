@@ -1,5 +1,11 @@
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.ansonlowzf.com`,
+      },
+    },
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     {
