@@ -1,38 +1,16 @@
 ---
-title: How To Create React Parallax Effect With Hooks
-date: 2020-05-14
+image: https://res.cloudinary.com/ansonlowzf/image/upload/v1592987936/AnsonLowZF%20Blog/parallax-blog-hero_dtcwyf.png
+title: How To Create React Parallax Effect With React Hooks
+date: 2020-06-24
 tags: [React.js]
 ---
 
-React ecosystem is huge, most of the things you want to do, there is a solution.
-Today, I would like to create React parallax effect with hooks without using any library or node packages
+I want to a hero section with parallax scrolling effect, the text and image move at a different speed without using any library.
 
-I want to build a hero section with parallax scrolling effect.
-Text and image move at a different speed.
-
-It's easy to do with vanilla JavaScript.
-What if I want to implement the same JavaScript in React.js?
-
-React.js approach is different, I stuck for quite some time because I do not think in React.js.
-
-I googled around, most of the guides, tutorials and articles are using:-
-
-1. [React-parallax](https://www.npmjs.com/package/react-parallax)
-2. [React Spring](https://www.react-spring.io/)
-3. [Framer Motion ](https://www.framer.com/motion/)
-
-When I try to a find solution in StackOverflow,
-Most of the solution is either with Class component or long React Refs code
-
-If you are learning React.js around mid of the year 2019, It's time for React Hooks.
-I skipped learning Class component.
-Hence, I not sure how to resolve Class component and convert it to functional component with Hooks
-
-What I want to do is apply the following JavaScript in my hero component with Hooks only.
+It’s easy to do with vanilla JavaScript.
 
 ```js
-// JavaScript script to target parallax container and
-// slow down Yoffset for 50%
+// Target parallax container and slow down image's Yoffset for 50%
 window.addEventListener("scroll", function () {
   const parallax = document.querySelector(".parallax")
   let scrollPosition = window.pageYOffset
@@ -41,7 +19,30 @@ window.addEventListener("scroll", function () {
 })
 ```
 
-I convert my HTML mark up to JSX
+What if I want to implement the same code in React.js?
+
+As a front-end developer who not yet think in React, I'm stuck for quite some time.
+
+I googled around, most of the guides, tutorials and articles are using:-
+
+1. [React-parallax](https://www.npmjs.com/package/react-parallax)
+2. [React Spring](https://www.react-spring.io/)
+3. [Framer Motion ](https://www.framer.com/motion/)
+
+When I try to a find solution in StackOverflow. Most of the solution is either in Class component or React Refs code.
+
+I started to learn React.js around mid of the year 2019. It’s the React Hooks era.
+I skipped learning Class component.
+Hence, I not sure how to resolve Class component and convert it to a functional component with React Hooks.
+
+---
+
+## Covert to React
+
+I want to apply the Parallex JavaScript in React Hero component.
+How should I do it?
+
+Convert HTML mark up to JSX
 
 ```js
 <div className="App">
@@ -59,11 +60,11 @@ I convert my HTML mark up to JSX
 </div>
 ```
 
-## My first try
+---
+
+## My First Try
 
 I thought I can just wrap the JavaScript code with parentheses, like how we execute JavaScript code in JSX
-
-This is what I did
 
 ```js
 <div className="App">
@@ -90,15 +91,18 @@ This is what I did
 })}
 ```
 
-What a genius, am I?
+Of course, it's failed!
 
-## Second try
+What a genius!
 
-Continue my research and read more article. Oh I see, if I want to addEventListener, I should put them in useEffect Hooks.
+---
 
-Without thinking further
+## Second Try
 
-I did a genius thing again
+I continue my research and read more article.
+Oh, I see, if I want to addEventListener, I should write the parallax code in useEffect Hooks.
+
+Without thinking further, I insert the parallax code in:-
 
 ```js
 export default function App() {
@@ -132,21 +136,23 @@ export default function App() {
 }
 ```
 
-Ya ya, this is my problem with lousy React.js's fundamental.
-Oh my god, I don’t know how to think in React.
-So sad!
+What a lousy React fundamental I have. I'm sad!
 
-## Final try before asking help
+---
+
+## Final Try Before Asking Help
 
 More googling with different keywords,
-React parallax effect,
-parallax scroll,
-parallax with React hooks,
-scrolling in React,
-React onscroll event and ...More
 
-Continue reading more articles. I getting more pro in React.js already.
-Yeah, I can do it.
+- React parallax effect
+- parallax scroll
+- parallax with React Hooks
+- scrolling in React
+- React onScroll event
+- More
+
+Continue reading more articles. I feel like more pro in React now. Yes, I can do it.
+Just do it, come on.
 
 ```js
 export default function MyApp() {
@@ -179,19 +185,21 @@ export default function MyApp() {
 }
 ```
 
-Then what? Ah... I don't know how to implement the rest of the JavaScript code into this React's component.
-Where should I put the transform and the translateY?
+En~ then what?
 
-Why, I'm so noob ~
+Where should I write the parallax code?
+I am a real React noob.
 
-No choice, I need to trouble my big brother again.
-SOS ah! Malcolm. He is a React.js expert [Malcolm Kee](https://twitter.com/Malcolm_Kee) and a fanatic.
+---
+
+## Asking For Help
+
+I need to trouble my big brother again, [Malcolm Kee](https://twitter.com/Malcolm_Kee).
+He is a React.js expert and a fanatic.
 He always guides and helps React beginner in my country - Malaysia.
-He organizes [React KL's meetup](https://www.kl-react.com/) to gather React developers to share tips and tricks and latest infomation about React.js to the local React.js community.
+He organizes [React KL's meetup](https://www.kl-react.com/) to gather React developers and share tips and tricks and latest information about React.js to the Kuala Lumpur React.js community.
 
-I reach him out with Twitter and send my code to him though CodeSandbox
-
-A few moments later,
+I reach him out with Twitter and send my code to him though CodeSandbox.
 
 He replies me the following with code.
 
@@ -237,11 +245,11 @@ export default function App() {
 ```
 
 I think he solves it in 30 sec.
-
-After seeing his code, I feel like I don't understand React.js at all.
+After seeing his code, I feel like I don’t understand React at all.
 
 I need to strengthen my React.js fundamental.
-
-Thank you, Malcolm, I understand React.js a little bit more today.
+Thank you, Malcolm, I understand React a little bit more today.
 
 Check the Parallax effect in [CodeSandbox](https://codesandbox.io/s/parallax-effect-with-react-hooks-2k5hq?file=/src/App.js)
+
+Thank you for reading~
