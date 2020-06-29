@@ -1,132 +1,209 @@
 ---
-title: Learning To Be A Mouse Free Developer In VS Code
-date: 2020-04-13
+image: https://res.cloudinary.com/ansonlowzf/image/upload/v1593437550/AnsonLowZF%20Blog/mouseless-developer_tbdmb9.png
+title: Learning To Be A Mouse-less Web Developer In VS Code
+date: 2020-05-29
 tags: ["Resources"]
 ---
 
-After using PC for so many years with a mouse or trackpad. We can point and click everything we want on the screen so fast and concise. Drag and drop, left-click, right-click, scroll the web page up and down with mouse wheel and so on.
+After using PC for so many years with a mouse or trackpad, we so used to point and click everything we want on the screen so fast and concise. Drag and drop, left-click, right-click, scroll the web page up and down with mouse wheel.
 
-There are some arguments in the web development community mention writing code without a mouse is faster and efficient.
+There are some arguments in the web development community mention that writing code without a mouse could be faster.
 
-I'm curious to try it out. My target is to focus 90% on using the keyboard and 10% on using the mouse. I don't think we can 100% avoid using a mouse in a graphic user interface (GUI) environment. Especially when we would like check out our website.
+I'm curious to try it out. My target is to focus 90% on using the keyboard. I don't think we can 100% avoid using a mouse in a graphic user interface (GUI) environment, especially when we want to check the navigation link, button and form.
 
-I will try my best just to use the keyboard,keyboard shortcut, terminal and command line in VS Code. Then document my learning to be a mouse free developer (should be a mouse-less developer more accurately).
+I will try my best to use the keyboard shortcut, terminal and command line in VS Code. Then document my learning to be a mouse free developer (Ops, it's should be a mouse-less developer).
 
-For so many years, I depend on the mouse. I not sure I can get used to it or not. What I pretty sure is my coding speed will decrease dramatically. However, I'm pretty excited to learn this new thing. Wish me good luck.
+I not sure I can get used to it or not. What I pretty sure is my coding speed will decrease dramatically.
 
-Below are the keyboard shortcut and navigation I learned so far, I'll constantly update this blog when I learn something new.
+**If you could also share how you code without using a mouse would be much appreciated. Let's learn together.**
 
-## First few days
+Below are the keyboard shortcut and navigation I learned so far, I'll continuously update this article when I learn something new.
 
-This is the hard part, I always use my trackpad unconsciously and always need to remind myself not to use it.
+## First Few Days
 
-## New habit
+I use mouse unconsciously, and I always have to remind myself not to use it.
 
-Here are some of the new habits I gained when I'm learning to code with keyboard only.
+## Change Cursor Colour
 
-1. Check line number
-2. Always check whether cursor is on editor or explorer
-3. I change my cursor color to yellow to make it more obvious
+I change my cursor colour to yellow. So, I can see it easily.
 
 ## Open a file
 
-With **Go to file**
+### Method 1: Use Go To File
 
-I often toggle the sidebar off with **_Ctrl + b_**. I navigate from file to file with **_Ctrl + e_** (you can also use **_Ctrl + p_**) then search the keyword of the filename and press **_enter_** to open the file.
+I often toggle the sidebar off with **_Ctrl + B_**. I navigate from file to file with **_Ctrl + E_** (you can also use **_Ctrl + P_**) then search the keyword of the filename and press **_Enter_** to open a file.
 
-**Example**:-
+Example:-
+Your filename is **how-to-build-a-website-with-gatsbyjs.md**, you can type **gatsbyjs** or **build a website**, VS Code will filter and show you every file match your search.
 
-Your filename is **how-to-build-a-website-with-gatsbyjs.md**, you can just type **gatsbyjs** or **build a website**, VS Code will filter and show you every file match your search.
+### Method 2: Use Breadcrumbs
 
-With **Breadcrumbs**
-
-**_Ctrl + Shift + ._ (fullstop)** to focus your current breadcrumbs folder and use **_Ctrl + right/left arrow_** to navigate between folder, **_up/down arrow_** navigate between the file and press **_enter_** to open the file.
+**_Ctrl + Shift + . (full stop)_** to focus your current breadcrumbs folder.
+Use **_Ctrl + right/left arrow_** to navigate between folder.
+Use **_up/down arrow_** to navigate between the file.
+Press **_Enter_** to open the file.
 
 ## Navigate between editor and explorer
 
-I seldom navigate folder and file this way. I share this method to people who might find it useful.
+I seldom navigate folder and file this way. I share this method with people who might find it useful.
 
-When you want to open a file even with sidebar toggle off, you can **_Ctrl + Shift + e_** to focus on sidebar's explorer and **_Ctrl + Shift + e_** again to focus back to editor or
+### Method 1
 
-You can **_Ctrl + 0_** (Zero) (not working in number pad) to focus on sidebar's explorer, **_Ctrl + 1_** (not working in number pad) to focus back to editor
+**_Ctrl + Shift + E_** to focus on the explorer and **_Ctrl + Shift + E_** again to focus back to the editor.
 
-Use **_up and down arrow_** to navigate between the file.
+- Use the **_up/down arrow_** to navigate between the file or folder.
+- Use the **_left arrow_** to go up one directory, and right arrow to go inside a directory.
+- Press **_Enter_** to open a file.
 
-Use **_left arrow_** to focus to folder and left arrow again to collapse the folder.
+### Method 2
 
-Use **_right arrow_** to focus to file and right arrow again to open a folder if it's collapsed.
+**_Ctrl + 0 (Zero)_** (not working in number pad) to focus on explorer, **_Ctrl + 1_** (not working in number pad) to focus back to the editor
 
-## Navigate tab to tab
+- Use the **_up/down arrow_** to navigate between the file or folder.
+- Use the **_left arrow_** to go up one directory, and right arrow to go inside a directory.
+- Press Enter to open a file.
 
-I use **Ctrl + page up** to focus on previous tab and **Ctrl + page down** to focus on next tab.
+## Navigate between the editor's tab
 
-Alternately, you can use **Ctrl + tab** to focus on next tab or **Ctrl + Shift + tab** to focus on previous tab.
+### Method 1
+
+- I use **_Ctrl + PgUp_** to focus on the previous tab and **_Ctrl + PgDn_** to focus on the next tab.
+
+### Method 2
+
+- You can use **_Ctrl + Tab_** to focus on the next tab or **_Ctrl + Shift + Tab_** to focus on the previous tab.
+
+## Close a tab
+
+- **_Ctrl + W_** to close the current tab
 
 ## Delete entire line
 
-Don't press and hold **backspace** to delete character by character in a line. Said you want to delete line 28, place your cursor on line 28 in the editor **_Ctrl + Shift + k_** or **_Shift + delete_** to delete the line.
+### Method 1
+
+- Press **_Backspace_** deletes one character to the left
+
+### Method 2
+
+- Press **_Delete_** on the keyboard delete one character to the right
 
 ## Delete a word
 
-**Ctrl + d** to select a word (whether you are in front, back or middle of the word), press **_delete_** in the keyboard to delete the word.
+- **_Ctrl + D_** to select a word (whether you are in front, back or within the word), press **_Delete_** in the keyboard to remove the word.
+- Place your cursor at the end of the word you want to delete, then **_Ctrl + Backspace_** to delete the word.
+- Place your cursor in front of the word, and then **_Ctrl + Delete_** to delete the word.
 
-Place your cursor at the end of the word you want to delete, then **_Ctrl + backspace_** to delete the word
+## Insert a new line
 
-Place your cursor in front of the word, then **Ctrl + delete** to delete the word.
-
-## Insert a line
-
-When I am in the middle of a line and I want to move my cursor down to start a new line, I **Ctrl + enter**. If I want to push my existing line down and add a new line above, I **Ctrl + Shift + enter**.
+- **_Ctrl + Enter_** to move my cursor to a new line (go down 1 line).
+- **_Ctrl + Shift + Enter_** to push existing line down and add a new line.
 
 ## Moving cursor in the editor
 
-1. **Right Arrow** move one character to the right from your current location
-1. **Left Arrow** move one character to the left from your current location
-1. **Up Arrow** move the cursor up one line, hold the press for faster move
-1. **Down Arrow** move the cursor down one line, hold the press for faster move
-1. **Ctrl + Right Arrow** move the cursor to the beginner of a word
-1. **Ctrl + Left Arrow** move the cusor to the end of a word
-1. **home** in the keyboard move cursor to the beginning of a line
-1. **end** in the keyboard move cursor to the end of a line
-1. **Ctrl + home** move the cursor to the beginning of the page
-1. **Ctrl + end** move the cursor to the end of the page
-1. **backspace** delete one character to the left
-1. **delete** delete one character to the right
+(Sorry for including this basic)
 
-Move the cursor to the top of the editor **_page up_** in the keyboard and move the cursor to the bottom of the editor **_page down_** in the keyboard. I use it to scroll editor sometime.
+- The **_right arrow_** moves one character to the right
+- The **_left arrow_** moves one character to the left
+- The **_up arrow_** moves the cursor up one line
+- The **_down arrow_** moves the cursor down one line
 
-## Move the cursor and select the word along the way
+## Moving cursor by word
 
-**Ctrl + Shift + Right Arrow** move cursor and select the word toward right
+- **_Ctrl + right arrow_** moves the cursor to the end of a word
+- **_Ctrl + left arrow_** move the cursor to the beginning of a word
 
-**Ctrl + Shift + Left Arrow** move cursor and select the word toward left
+## Moving cursor by section
 
-## Selection
+- **_Home_** in the keyboard move cursor to the beginning of a line
+- **_End_** in the keyboard move cursor to the end of a line
+- **_Ctrl + Home_** move the cursor to the beginning of the page
+- **_Ctrl + End_** move the cursor to the end of the page
+- **_PgUp_** moves the cursor to the top of the editor.
+- **_PgDn_** moves the cursor to the bottom of the editor.
 
-1. **Ctrl + d** to select a word
-1. **Ctrl + Shift + Right Arrow** to select a word toward the right
-1. **Ctrl + Shift + Left Arrow** to select a word toward the left
+> I use it to scroll editor sometime.
+
+## Select a word
+
+### Method 1
+
+- **_Ctrl + D_** to select a word
+
+### Method 2
+
+- **_Ctrl + Shift + Right Arrow_** to select a word toward the right
+- **_Ctrl + Shift + Left Arrow_** to select a word toward the left
+
+## Move and select a word
+
+- **_Ctrl + Shift + right arrow_** move the cursor and select the word toward the right.
+- **_Ctrl + Shift + left arrow_** move the cursor and select the word toward left.
 
 ## Scroll the editor
 
-To scroll one line up **_Ctrl + Up Arrow_** and to scroll one line down **_Ctrl + Down Arrow_**, I use it to adjust my editor view.
+- **_Ctrl + up arrow_** to scroll one line up.
+- **_Ctrl + down arrow_** to scroll one line down.
 
-## Terminal
+> I use it to adjust the editor view.
 
-I always close the VS Code terminal panel while I'm coding. When I want to add a file to the git staging area, I'll **_Ctrl + `(backtick)_** toggle terminal panel and **_git add [filename]_** then **_git commit -m 'description'_**.
+## Open the Terminal inside VS Code
 
-I find that If you just stage one file, using VS Code built-in source control is faster. **_Ctrl + Shift + g_**, navigate to the file you want to stage, click the **&plus;** sign, write your description and **_Ctrl + enter_** to commit your change.
+- **_Ctrl + `(backtick)_** toggle terminal panel on & off
 
-Imagine you want to stage the following two files at the same time:-
+## Open Terminal side by side
 
-1. /posts/how-to-be-a-good-developer.md
-2. /posts/how-to-be-a-web-designer.md
+**_Ctrl + shift + 5_** to open second terminal
 
-Long typing right? Even you want to use the tab auto-completion. You also need to type until the **_good_** or the **_web_** word then only you can tab to auto-complete the whole filename, isn't it? This is how I stage the file while I'm practising as a mouse-less developer.
+## Open an external Terminal
 
-### Local development server
+If you always forget to stop the development server before closing the VS Code.
 
-I have the habit to always stop the development server before I close VS Code or turn off the computer. To avoid the possibility to forget to stop it later. I prefer to use an external terminal. **_Ctrl + Shift + c_** in VS Code to open external. You will notice the external terminal you just open is in your project directory. Having a terminal open in my windows taskbar reduce the possibility I forget to stop the server.
+Use **_Ctrl + Shift + C_** to open an external terminal
 
-**Note**
-Default to **_windows cmd_**. if you want to change to your favourite terminal, Open VS Code setting and search **_External: windows Exec_**
+> if you want to change external terminal, Open VS Code setting and search **External: Windows Exec**
+
+## Show All Command
+
+### Method 1
+
+- **_Ctrl + Shift + P_** to see all commands
+
+### Method 2
+
+I prefer pressing **_F1_** to see all commands
+
+```html
+<div>
+  <article>
+    <a>I'm a button</a>
+  </article>
+</div>
+```
+
+### Remove Tag
+
+I want to remove the article tag.
+
+1. Place the cursor inside
+   the tag until the beginning and the ending tag is glowing.
+2. Press **_F1_**
+3. Type **remove tag** 4. Press **_Enter_**
+
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/kltt1kv3vp7oqvkzsgq1.png)
+
+### Update Tag
+
+Same concept above **Wrap with Abbreviation** I want to wrap the word "link" with an anchor tag.
+
+```
+<p>Please check out this link</p>
+```
+
+1. Put the cursor in front the word "link"
+2. **_Ctrl + D_** to select the word
+3. Press **_F1_** and type **wrap**
+
+   ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/8s5hup911otx77ux9o9c.png)
+
+4. Type **"a"** and press **_Enter_** Hi, Do you have any similar tips could share
+   with me?
