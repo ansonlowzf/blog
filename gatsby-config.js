@@ -10,7 +10,9 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-theme-blog`,
-      options: {},
+      options: {
+        prismPreset: `prism-okaidia`,
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -37,7 +39,9 @@ module.exports = {
   siteMetadata: {
     title: `Anson LowZF Blog`,
     author: `Anson LowZF`,
-    description: `A self taught front-end developer documenting and sharing his learning process`,
+    description: `  A self-taught developer without any related knowledge documenting "how I
+    learn to code". The code and jargon words confused me all the time but It's
+    fun and satisfying.`,
     siteUrl: `https://ansonlowzf.com`,
     social: [
       {
